@@ -40,3 +40,9 @@ end
 if test -z $TMUX && status --is-login
     attach_tmux_session_if_needed
 end
+
+function ghcr
+ gh repo create $argv
+ ghq get $argv[1]
+ code (ghq list --full-path -e $argv[1])
+end
