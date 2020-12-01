@@ -17,6 +17,9 @@ status --is-interactive; and source (pyenv init -|psub)
 alias brew="env PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew"
 #alias brew="env PATH={PATH/\/usr\/local\/var\/pyenv\/shims/} brew"
 alias g git
+alias d docker
+
+eval (gh completion -s fish| source)
 
 function attach_tmux_session_if_needed
     set ID (tmux list-sessions)
