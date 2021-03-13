@@ -41,8 +41,17 @@ if test -z $TMUX && status --is-login
     attach_tmux_session_if_needed
 end
 
+# githubにリポジトリを作り、ghqで取得、vscodeでひらく
 function ghcr
  gh repo create $argv
  ghq get $argv[1]
  code (ghq list --full-path -e $argv[1])
 end
+
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
+
+# google cloud sdk
+# ""の中に$()を入れてもそのコマンドが実行されない
+# source "(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
+source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
