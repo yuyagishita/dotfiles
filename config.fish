@@ -1,3 +1,4 @@
+
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
@@ -14,10 +15,19 @@ export PYENV_ROOT=/usr/local/var/pyenv
 
 status --is-interactive; and source (pyenv init -|psub)
 
+# aliases
+alias ls "ls -p -G"
+alias la "ls -A"
+alias ll "ls -l"
+alias lla "ll -A"
 alias brew="env PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew"
 #alias brew="env PATH={PATH/\/usr\/local\/var\/pyenv\/shims/} brew"
 alias g git
 alias d docker
+if type -q exa
+  alias ll "exa -l -g --icons"
+  alias lla "ll -a"
+end
 
 eval (gh completion -s fish| source)
 
@@ -55,3 +65,4 @@ set -gx PATH "$VOLTA_HOME/bin" $PATH
 # ""の中に$()を入れてもそのコマンドが実行されない
 # source "(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
+
