@@ -1,4 +1,3 @@
-
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
@@ -38,7 +37,7 @@ function attach_tmux_session_if_needed
         return
     end
 
-    set new_session "Create New Session" 
+    set new_session "Create New Session"
     set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
     if test "$ID" = "$new_session"
         tmux new-session
@@ -65,4 +64,3 @@ set -gx PATH "$VOLTA_HOME/bin" $PATH
 # ""の中に$()を入れてもそのコマンドが実行されない
 # source "(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
-
