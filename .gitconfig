@@ -1,5 +1,5 @@
 [user]
-	name = yu-yagishita
+	name = yuyagishita
 	email = yu.yagishita1995@gmail.com
 [core]
   excludesfile = /Users/yu.yagishita/.gitignore_global
@@ -45,7 +45,7 @@
 [hub]
   protocol = https
 [github]
-  user = yu-yagishita
+  user = yuyagishita
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]
@@ -61,3 +61,5 @@
 	process = git-lfs filter-process
 [ghq]
   root = ~/.ghq
+[init]
+	defaultBranch = main
