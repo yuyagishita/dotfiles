@@ -69,10 +69,30 @@ if = '''!has('nvim')'''
 repo = 'neovim/python-client'
 if = '''!has('nvim')'''
 
-#[[plugins]]
-#repo = "neoclide/coc.nvim"
-#merged = 0
-#rev = "release"
-#hook_add = """
-#source ~/.config/nvim/plugins/coc.rc.vim
-#"""
+[[plugins]]
+repo = "neoclide/coc.nvim"
+merged = 0
+rev = "release"
+hook_add = """
+source ~/.config/nvim/plugins/coc.rc.vim
+"""
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+
+# DAP
+[[plugins]]
+repo = 'mfussenegger/nvim-dap'
+
+[[plugins]]
+repo = 'mfussenegger/nvim-dap-python'
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_post_update = 'TSUpdate'
+
+[[plugins]]
+repo = 'theHamsta/nvim-dap-virtual-text'
+
+[[plugins]]
+repo = 'rcarriga/nvim-dap-ui'

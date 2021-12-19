@@ -107,6 +107,10 @@ endif
 " Other plugins
 "-------------------------------------------------------------------------------
 
+" vim-python
+" let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
+let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
+
 " vim-go
 let g:go_disable_autoinstall = 1
 
@@ -183,3 +187,38 @@ source ~/.vimrc.maps
 source ~/.vimrc.lightline
 
 set exrc
+
+"-------------------------------------------------------------------------------
+" dap
+"-------------------------------------------------------------------------------
+lua << EOF
+local dap = require('dap')
+-- require('dap-python').setup('~/.pyenv/versions/cp/bin/python')
+require('dap-python').setup('~/.pyenv/versions/cp/bin/python', { include_configs = false })
+dap.configurations.python = {
+  {
+     type = 'python';
+     request = 'launch';
+     name = 'Launch file';
+     program = '${file}';
+     console = 'integratedTerminal';
+  },
+--  {
+--     type = 'python';
+--     name = 'atcoder Debugger';
+--     request = 'launch';
+--     program = '${file}';
+--     console = 'integratedTerminal';
+--     -- [[
+--     python test.py < input.txt のようにはできなさそう。。
+--     https://github.com/mfussenegger/nvim-dap/discussions/213
+--     ]]
+--     args = {'<', '${fileDirname}/input.txt'}
+--     runInTerminal = true;
+--     stopOnEntry = false;
+--  },
+}
+
+require('nvim-dap-virtual-text').setup()
+require('dapui').setup()
+EOF

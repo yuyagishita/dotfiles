@@ -1,18 +1,17 @@
 set -U FZF_LEGACY_KEYBINDINGS 0
+
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
+
 set XDG_CONFIG_HOME ~/.config
 
-# pyenvさんに~/.pyenvではなく、/usr/loca/var/pyenvを使うようにお願いする
-export PYENV_ROOT=/usr/local/var/pyenv
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+status is-interactive; and pyenv init --path | source
+pyenv init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
 
-# pyenvさんに自動補完機能を提供してもらう
-#if which pyenv > /dev/null; then eval "(pyenv init -)"; end
-
-# Load pyenv automatically by appending
-# the following to ~/.config/fish/config.fish:
-
-status --is-interactive; and source (pyenv init -|psub)
+set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
 
 # aliases
 alias ls "ls -p -G"
@@ -37,7 +36,7 @@ function attach_tmux_session_if_needed
         return
     end
 
-    set new_session "Create New Session"
+    set new_session "Create New Session" 
     set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
     if test "$ID" = "$new_session"
         tmux new-session
@@ -45,10 +44,10 @@ function attach_tmux_session_if_needed
         tmux attach-session -t "$ID"
     end
 end
-
-if test -z $TMUX && status --is-login
-    attach_tmux_session_if_needed
-end
+ 
+ if test -z $TMUX && status --is-login
+     attach_tmux_session_if_needed
+ end
 
 # githubにリポジトリを作り、ghqで取得、vscodeでひらく
 function ghcr
@@ -64,3 +63,6 @@ set -gx PATH "$VOLTA_HOME/bin" $PATH
 # ""の中に$()を入れてもそのコマンドが実行されない
 # source "(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
+
+# flutter
+set PATH ~/development/flutter/bin $PATH
