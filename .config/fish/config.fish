@@ -1,3 +1,4 @@
+starship init fish | source
 set -U FZF_LEGACY_KEYBINDINGS 0
 
 set -x GOPATH $HOME/go
@@ -49,13 +50,6 @@ end
      attach_tmux_session_if_needed
  end
 
-# githubにリポジトリを作り、ghqで取得、vscodeでひらく
-function ghcr
- gh repo create $argv
- ghq get $argv[1]
- code (ghq list --full-path -e $argv[1])
-end
-
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
@@ -66,3 +60,7 @@ source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fi
 
 # flutter
 set PATH ~/development/flutter/bin $PATH
+
+# Volta
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH

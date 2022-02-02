@@ -1,0 +1,18 @@
+add_newline = true
+
+[package]
+disabled = true
+
+[directory]
+truncation_length = 100
+truncate_to_repo = true
+fish_style_pwd_dir_length = 1
+
+[gcloud]
+disabled = true
+
+[aws]
+disabled = true
+
+[openstack]
+disabled = true
