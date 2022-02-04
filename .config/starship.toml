@@ -1,18 +1,84 @@
 add_newline = true
 
 [package]
+symbol = " "
 disabled = true
 
 [directory]
 truncation_length = 100
 truncate_to_repo = true
 fish_style_pwd_dir_length = 1
+read_only = " "
 
 [gcloud]
 disabled = true
 
 [aws]
+symbol = "  "
 disabled = true
 
 [openstack]
 disabled = true
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
