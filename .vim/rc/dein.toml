@@ -33,6 +33,11 @@ repo = 'kristijanhusak/defx-git'
 #"""
 
 [[plugins]]
+repo = 'junegunn/fzf',
+build = './install --all'
+merged = 0
+
+[[plugins]]
 repo = 'Shougo/vimproc.vim'
 hook_post_update = '''
   if dein#util#_is_windows()
