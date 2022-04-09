@@ -2,9 +2,9 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "json",
     "css",
-    "markdown",
     "rust",
-    "python"
+    "python",
+    "cpp"
   ],
   "eslint.autoFixOnSave": true,
   "eslint.autoFix": true,
@@ -55,6 +55,6 @@
   "python.linting.flake8Args": [
     "--max-line-length=88",
     "--ignore=E203,W503,W504,E741"
-  ]
-  // "python.linting.mypyEnabled": "true"
+  ],
+  "clangd.path": "/usr/local/opt/llvm/bin/clangd"
 }
