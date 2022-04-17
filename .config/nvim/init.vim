@@ -1,6 +1,8 @@
 " vscodeでneovimを使う際に破損とかを防ぐため
 if !exists('g:vscode') 
   source ~/.vimrc
+  " luaに移行するために作業中のやつ
+  "lua require('plugins')
 
   " true color
   if exists("&termguicolors") && exists("&winblend")
