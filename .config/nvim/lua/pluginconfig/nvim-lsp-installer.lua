@@ -72,6 +72,34 @@ lspconfig.sumneko_lua.setup({
 -- }
 -- lspconfig.pyright.setup {settings = {python = {pythonPath = "python3"}}}
 
+-- lspconfig.clangd.setup({
+--   handlers = lsp_status.extensions.clangd.setup(),
+--   init_options = {
+--     clangdFileStatus = true
+--   },
+--   on_attach = mix_attach,
+--   capabilities = lsp_status.capabilities
+-- })
+require'lspconfig'.clangd.setup{}
+
+lspconfig.rust_analyzer.setup({
+    on_attach=on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            assist = {
+                importGranularity = "module",
+                importPrefix = "self",
+            },
+            cargo = {
+                loadOutDirsFromCheck = true
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
+
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local servers = require("nvim-lsp-installer").get_installed_servers()
 for _, server in ipairs(servers) do
