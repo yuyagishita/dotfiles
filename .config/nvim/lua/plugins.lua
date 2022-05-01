@@ -19,7 +19,7 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Font
 	use({ "kyazdani42/nvim-web-devicons" })
-	
+
 	--------------------------------
 	-- Notify
 	use({ "rcarriga/nvim-notify", event = "VimEnter" })

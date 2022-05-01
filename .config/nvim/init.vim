@@ -2,6 +2,7 @@
 if !exists('g:vscode') 
   "source ~/.vimrc
   " luaに移行するために作業中のやつ
+  lua require('display')
   lua require('plugins')
   lua require('mappings')
 
