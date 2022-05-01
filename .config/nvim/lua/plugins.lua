@@ -193,6 +193,28 @@ return require("packer").startup(function(use)
 		cmd = { "TSContextEnable" },
 	})
 
+	--------------------------------------------------------------
+	-- Appearance
+
+	--------------------------------
+	-- Statusline
+	use({
+		"nvim-lualine/lualine.nvim",
+		-- after = colorscheme,
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
+
+	--------------------------------
+	-- Bufferline
+	use({
+		'akinsho/bufferline.nvim', 
+		tag = "*", 
+		requires = 'kyazdani42/nvim-web-devicons'
+	})
+
+	----------------------------------------------------------------
+	---- Syntax
+
 	--------------------------------
 	-- Highlight
 	use({
@@ -208,17 +230,11 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
-		-- requires = { 
-		-- 	"nvim-lua/plenary.nvim",
-		-- 	"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-		-- 	"MunifTanjim/nui.nvim",
-		-- },
 		event = "VimEnter",
 		config = function()
 			require("pluginconfig/neo-tree")
 		end,
 	})
-	
 
 	--------------------------------
 	-- Help
@@ -233,11 +249,12 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Brackets
 	use({
+		"andymass/vim-matchup",
+		after = { "nvim-treesitter" },
+	})
+	use({
 		"windwp/nvim-autopairs",
 		event = "VimEnter",
-		-- config = function()
-		-- 	require("rc/pluginconfig/nvim-autopairs")
-		-- end,
 	})
 
 	--------------------------------
@@ -245,14 +262,22 @@ return require("packer").startup(function(use)
 	use({
 		"L3MON4D3/LuaSnip",
 		after = { "friendly-snippets" },
-		-- config = function()
-		-- 	require("rc/pluginconfig/LuaSnip")
-		-- end,
 	})
 
 	--------------------------------
 	-- Snippet Pack
 	use({ "rafamadriz/friendly-snippets", event = "VimEnter" })
+
+	--------------------------------
+	-- Comment out
+	use({
+		"numToStr/Comment.nvim",
+		event = "VimEnter",
+		config = function()
+			-- require("pluginconfig/Comment")
+			require("Comment").setup()
+		end,
+	})
 
 	--------------------------------------------------------------
 	-- Programming Languages

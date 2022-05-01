@@ -45,8 +45,8 @@ vim.keymap.set("n", "L", "<Nop>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "t", "<Nop>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "T", "<Nop>", { noremap = true, silent = true })
 -- -- git, use :10 or gG or GG
--- vim.keymap.set("n", "G", "<Nop>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "G", "[git]", {})
+vim.keymap.set("n", "G", "<Nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "G", "[git]", {})
 -- -- multicursor, use RR
 -- vim.keymap.set("n", "R", "<Nop>", { noremap = true, silent = true })
 -- -- close
@@ -79,23 +79,20 @@ vim.keymap.set("n", "L", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "'", "<Nop>", { noremap = true, silent = true })
 -- -- vim-operator-convert-case
 -- vim.keymap.set("n", "~", "<Nop>", { noremap = true, silent = true })
--- -- not use
--- vim.keymap.set("n", "Q", "<Nop>", { noremap = true, silent = true })
--- vim.keymap.set("n", "C", "<Nop>", { noremap = true, silent = true })
--- vim.keymap.set("n", "D", "<Nop>", { noremap = true, silent = true })
--- vim.keymap.set("n", "Y", "<Nop>", { noremap = true, silent = true })
--- vim.keymap.set("n", "=", "<Nop>", { noremap = true, silent = true })
--- vim.keymap.set("n", "<C-q>", "<Nop>", { noremap = true, silent = true })
--- -- vim.keymap.set('n', '<C-c>', '<Nop>',  {noremap=true, silent = true})
--- 
--- -- nnoremap <C-m> <Nop> " = <CR>
--- -- noremap <CR> <Nop> " use quickfix
--- 
+-- not use
+vim.keymap.set("n", "Q", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "C", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "D", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "Y", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "=", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-q>", "<Nop>", { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-c>', '<Nop>',  {noremap=true, silent = true})
+-- nnoremap <C-m> <Nop> " = <CR>
+-- noremap <CR> <Nop> " use quickfix
 -- vim.keymap.set("n", "qq", function()
 -- 	return vim.fn.reg_recording() == "" and "qq" or "q"
 -- end, { noremap = true, expr = true })
 -- vim.keymap.set("n", "q", "<Nop>", { noremap = true, silent = true })
--- 
 -- vim.keymap.set("n", "gh", "<Nop>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "gj", "<Nop>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "gk", "<Nop>", { noremap = true, silent = true })
