@@ -26,6 +26,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- ColorScheme
+	local colorscheme = "nightfox.nvim"
 	use({
 		"EdenEast/nightfox.nvim",
 		config = function()
@@ -200,15 +201,18 @@ return require("packer").startup(function(use)
 	-- Statusline
 	use({
 		"nvim-lualine/lualine.nvim",
-		-- after = colorscheme,
+		after = colorscheme,
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = function()
+			require("pluginconfig/lualine")
+		end,
 	})
 
 	--------------------------------
 	-- Bufferline
 	use({
-		'akinsho/bufferline.nvim', 
-		tag = "*", 
+		'akinsho/bufferline.nvim',
+		tag = "*",
 		requires = 'kyazdani42/nvim-web-devicons'
 	})
 
