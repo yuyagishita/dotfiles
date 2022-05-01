@@ -1,11 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "json",
-    "css",
-    "rust",
-    "python",
-    "cpp"
-  ],
+  "coc.preferences.formatOnSaveFiletypes": ["json", "css", "rust", "python"],
   "eslint.autoFixOnSave": true,
   "eslint.autoFix": true,
   "tsserver.enableJavascript": false,
