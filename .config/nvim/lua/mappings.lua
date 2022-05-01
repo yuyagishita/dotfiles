@@ -17,16 +17,16 @@
 vim.keymap.set({ "n", "x" }, "[SubLeader]", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", ",", "[SubLeader]", {})
 vim.api.nvim_set_keymap("x", ",", "[SubLeader]", {})
--- -- [lsp]
--- vim.keymap.set("n", ";", "<Nop>", { noremap = true, silent = true })
--- vim.keymap.set("n", "[lsp]", "<Nop>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", ";", "[lsp]", {})
--- -- [ts]
--- vim.keymap.set("n", "[ts]", "<Nop>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "'", "[ts]", {})
--- vim.keymap.set("n", "M", "<Nop>", { noremap = true, silent = true })
--- vim.keymap.set("n", "?", "<Nop>", { noremap = true, silent = true })
--- vim.keymap.set("n", "<C-s>", "<Nop>", { noremap = true, silent = true })
+-- [lsp]
+vim.keymap.set("n", ";", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "[lsp]", "<Nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", ";", "[lsp]", {})
+-- [ts]
+vim.keymap.set("n", "[ts]", "<Nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "'", "[ts]", {})
+vim.keymap.set("n", "M", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "?", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-s>", "<Nop>", { noremap = true, silent = true })
 -- -- sandwich & <spector>
 -- vim.keymap.set({ "n", "x" }, "s", "<Nop>", { noremap = true, silent = true })
 -- vim.keymap.set({ "n", "x" }, "S", "<Nop>", { noremap = true, silent = true })
@@ -35,9 +35,9 @@ vim.api.nvim_set_keymap("x", ",", "[SubLeader]", {})
 -- [fuzzy-finder]
 vim.keymap.set("n", "z", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "Z", "<Nop>", { noremap = true, silent = true })
--- -- switch buffer
--- vim.keymap.set("n", "H", "<Nop>", { noremap = true, silent = true })
--- vim.keymap.set("n", "L", "<Nop>", { noremap = true, silent = true })
+-- switch buffer
+vim.keymap.set("n", "H", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "L", "<Nop>", { noremap = true, silent = true })
 -- -- columnmove. use gJ
 -- vim.keymap.set("n", "J", "<Nop>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "K", "<Nop>", { noremap = true, silent = true })

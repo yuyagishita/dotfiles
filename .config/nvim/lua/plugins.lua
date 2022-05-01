@@ -33,39 +33,108 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	--------------------------------------------------------------
+	-- LSP & completion
 
 	--------------------------------
-	-- Filer
+	-- Auto Completion
 	use({
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		-- requires = { 
-		-- 	"nvim-lua/plenary.nvim",
-		-- 	"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-		-- 	"MunifTanjim/nui.nvim",
-		-- },
-		event = "VimEnter",
+		"hrsh7th/nvim-cmp",
+		requires = {
+			{ "L3MON4D3/LuaSnip", opt = true, event = "VimEnter" },
+			{ "windwp/nvim-autopairs", opt = true, event = "VimEnter" },
+		},
+		after = { "lspkind-nvim", "LuaSnip", "nvim-autopairs" },
 		config = function()
-			require("pluginconfig/neo-tree")
+			require("pluginconfig/nvim-cmp")
 		end,
 	})
-	
-	--------------------------------
-	-- Treesitter
 	use({
-		"nvim-treesitter/nvim-treesitter",
+		"onsails/lspkind-nvim",
 		event = "VimEnter",
-		run = ":TSUpdate",
 		config = function()
-			require("pluginconfig/nvim-treesitter")
+			require("pluginconfig/lspkind-nvim")
 		end,
 	})
+	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-omni", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-calc", after = "nvim-cmp" })
+	use({ "f3fora/cmp-spell", after = "nvim-cmp" })
+	use({ "yutkat/cmp-mocword", after = "nvim-cmp" })
+	use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
+	use({
+		"tzachar/cmp-tabnine",
+		run = "./install.sh",
+		after = "nvim-cmp",
+	})
+	use({ "ray-x/cmp-treesitter", after = "nvim-cmp" })
 
 	--------------------------------
-	-- Treesitter UI customize
+	-- Language Server Protocol(LSP)
 	use({
-		"romgrk/nvim-treesitter-context",
-		cmd = { "TSContextEnable" },
+		"neovim/nvim-lspconfig",
+		after = { "cmp-nvim-lsp" },
+		config = function()
+			require("pluginconfig/nvim-lspconfig")
+		end,
+	})
+	use({
+		"williamboman/nvim-lsp-installer",
+		requires = { { "RRethy/vim-illuminate", opt = true } },
+		after = { "nvim-lspconfig", "vim-illuminate", "nlsp-settings.nvim", "rust-tools.nvim" },
+		config = function()
+			require("pluginconfig/nvim-lsp-installer")
+		end,
+	})
+	use({
+		"tamago324/nlsp-settings.nvim",
+		after = { "nvim-lspconfig" },
+		config = function()
+			require("pluginconfig/nlsp-settings")
+		end,
+	})
+	use({ "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" })
+
+	--------------------------------
+	-- LSP's UI
+	use({
+		"tami5/lspsaga.nvim",
+		after = "nvim-lsp-installer",
+		config = function()
+			require("pluginconfig/lspsaga")
+		end,
+	})
+	use({
+		"folke/lsp-colors.nvim",
+		event = "VimEnter",
+	})
+	use({
+		"folke/trouble.nvim",
+		after = { "nvim-lsp-installer", "lsp-colors.nvim" },
+		config = function()
+			require("pluginconfig/trouble")
+		end,
+	})
+	use({
+		"EthanJWright/toolwindow.nvim",
+		requires = { { "akinsho/toggleterm.nvim", opt = true, event = "VimEnter" } },
+		after = { "trouble.nvim", "toggleterm.nvim" },
+		config = function()
+			require("pluginconfig/toolwindow")
+		end,
+	})
+	use({
+		"j-hui/fidget.nvim",
+		after = "nvim-lsp-installer",
+		config = function()
+			require("pluginconfig/fidget")
+		end,
 	})
 
 	--------------------------------------------------------------
@@ -106,6 +175,94 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	--------------------------------
+	-- Treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		event = "VimEnter",
+		run = ":TSUpdate",
+		config = function()
+			require("pluginconfig/nvim-treesitter")
+		end,
+	})
+
+	--------------------------------
+	-- Treesitter UI customize
+	use({
+		"romgrk/nvim-treesitter-context",
+		cmd = { "TSContextEnable" },
+	})
+
+	--------------------------------
+	-- Highlight
+	use({
+		"RRethy/vim-illuminate",
+		event = "VimEnter",
+		config = function()
+			require("pluginconfig/vim-illuminate")
+		end,
+	})
+
+	--------------------------------
+	-- Filer
+	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		-- requires = { 
+		-- 	"nvim-lua/plenary.nvim",
+		-- 	"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+		-- 	"MunifTanjim/nui.nvim",
+		-- },
+		event = "VimEnter",
+		config = function()
+			require("pluginconfig/neo-tree")
+		end,
+	})
+	
+
+	--------------------------------
+	-- Help
+
+	--------------------------------
+	-- Commandline
+	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
+
+	--------------------------------------------------------------
+	-- Coding
+
+	--------------------------------
+	-- Brackets
+	use({
+		"windwp/nvim-autopairs",
+		event = "VimEnter",
+		-- config = function()
+		-- 	require("rc/pluginconfig/nvim-autopairs")
+		-- end,
+	})
+
+	--------------------------------
+	-- Snippet
+	use({
+		"L3MON4D3/LuaSnip",
+		after = { "friendly-snippets" },
+		-- config = function()
+		-- 	require("rc/pluginconfig/LuaSnip")
+		-- end,
+	})
+
+	--------------------------------
+	-- Snippet Pack
+	use({ "rafamadriz/friendly-snippets", event = "VimEnter" })
+
+	--------------------------------------------------------------
+	-- Programming Languages
+
+	--------------------------------
+	-- Rust
+	use({
+		"simrat39/rust-tools.nvim",
+		after = { "nvim-lspconfig" },
+	})
 
   if packer_bootstrap then
     require('packer').sync()
