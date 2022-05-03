@@ -40,75 +40,35 @@ local on_attach = function(client, bufnr)
 end
 
 local lspconfig = require("lspconfig")
-lspconfig.sumneko_lua.setup({
-	settings = {
-		Lua = {
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				-- library = vim.api.nvim_get_runtime_file("", true),
-				preloadFileSize = 500,
-				-- very slow
-				-- library = vim.api.nvim_get_runtime_file("", true),
-			},
-			-- Do not send telemetry data containing a randomized but unique identifier
-			telemetry = { enable = false },
-		},
-	},
-})
 
--- lspconfig.grammarly.setup {
--- 	filetypes = { "markdown" },
--- 	handlers = {
--- 		["$/getToken"] = function()
--- 			return nil
--- 		end,
--- 		["$/getCredentials"] = function()
--- 			return nil
--- 		end,
--- 		["$/updateDocumentState"] = function()
--- 			return ""
--- 		end,
--- 	},
--- }
--- lspconfig.pyright.setup {settings = {python = {pythonPath = "python3"}}}
-
--- lspconfig.clangd.setup({
---   handlers = lsp_status.extensions.clangd.setup(),
---   init_options = {
---     clangdFileStatus = true
---   },
---   on_attach = mix_attach,
---   capabilities = lsp_status.capabilities
--- })
-require'lspconfig'.clangd.setup{}
-
-lspconfig.rust_analyzer.setup({
-    on_attach=on_attach,
-    settings = {
-        ["rust-analyzer"] = {
-            assist = {
-                importGranularity = "module",
-                importPrefix = "self",
-            },
-            cargo = {
-                loadOutDirsFromCheck = true
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    }
-})
+lspconfig.clangd.setup{ capabilities = capabilities, on_attach = on_attach }
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local servers = require("nvim-lsp-installer").get_installed_servers()
 for _, server in ipairs(servers) do
 	local opts = { capabilities = capabilities, on_attach = on_attach }
-	-- use rust-tools
+
 	if server.name == "rust_analyzer" then
 		require("rust-tools").setup(opts)
-	else
-		lspconfig[server.name].setup(opts)
 	end
+
+	if server.name == "sumneko_lua" then
+		local settings = {
+			Lua = {
+				workspace = {
+					-- Make the server aware of Neovim runtime files
+					-- library = vim.api.nvim_get_runtime_file("", true),
+				        preloadFileSize = 500,
+				        -- very slow
+				        -- library = vim.api.nvim_get_runtime_file("", true),
+					},
+					-- Do not send telemetry data containing a randomized but unique identifier
+					telemetry = { enable = false },
+				},
+			}
+		table.insert(opts, settings)
+	end
+
+	lspconfig[server.name].setup(opts)
 	vim.cmd([[ do User LspAttachBuffers ]])
 end
