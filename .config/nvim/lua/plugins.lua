@@ -186,6 +186,7 @@ return require("packer").startup(function(use)
 			require("pluginconfig/nvim-treesitter")
 		end,
 	})
+	use({ "JoosepAlviste/nvim-ts-context-commentstring", after = { "nvim-treesitter" } })
 
 	--------------------------------
 	-- Treesitter UI customize
@@ -291,8 +292,8 @@ return require("packer").startup(function(use)
 		"numToStr/Comment.nvim",
 		event = "VimEnter",
 		config = function()
-			-- require("pluginconfig/Comment")
-			require("Comment").setup()
+			require("pluginconfig/Comment")
+			-- require("Comment").setup()
 		end,
 	})
 
