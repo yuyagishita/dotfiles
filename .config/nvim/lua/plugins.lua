@@ -251,6 +251,16 @@ return require("packer").startup(function(use)
 	-- Coding
 
 	--------------------------------
+	-- Reading assistant
+        use({
+		"lukas-reineke/indent-blankline.nvim",
+		event = "VimEnter",
+		config = function()
+			require("pluginconfig/indent-blankline")
+		end,
+	})
+
+	--------------------------------
 	-- Brackets
 	use({
 		"andymass/vim-matchup",
@@ -259,6 +269,9 @@ return require("packer").startup(function(use)
 	use({
 		"windwp/nvim-autopairs",
 		event = "VimEnter",
+		config = function()
+			require("pluginconfig/nvim-autopairs")
+		end;
 	})
 
 	--------------------------------
