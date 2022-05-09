@@ -12,6 +12,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Lua Library
+	use({ "nvim-lua/popup.nvim" })
 	use({ "nvim-lua/plenary.nvim" })
 	use({ "tami5/sqlite.lua", module = "sqlite" })
 	use({ "MunifTanjim/nui.nvim" })

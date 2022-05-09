@@ -44,8 +44,7 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 local servers = require("nvim-lsp-installer").get_installed_servers()
 -- local servers = {"sumneko_lua", "rust_analyzer", "clangd"}
 
-local opts2 = { capabilities = capabilities, on_attach = on_attach }
-lspconfig.clangd.setup(opts2)
+lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
 
 for _, server in ipairs(servers) do
 	local opts = { capabilities = capabilities, on_attach = on_attach }
