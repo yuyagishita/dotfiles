@@ -1,7 +1,7 @@
 vim.g.indent_blankline_enabled = true
 
 require("indent_blankline").setup({
-	show_current_context = false,
+  show_current_context = false,
 	use_treesitter = true,
 	buftype_exclude = { "terminal" },
 	filetype_exclude = {
@@ -41,4 +41,11 @@ require("indent_blankline").setup({
 	-- }
 })
 
-vim.api.nvim_clear_autocmds({ event = { "TextChanged", "TextChangedI" }, group = "IndentBlanklineAutogroup" })
+-- vim.api.nvim_clear_autocmds({ event = { "TextChanged", "TextChangedI" }, group = "IndentBlanklineAutogroup" })
+
+-- vim.opt.list = true
+-- vim.opt.listchars:append("eol:↴")
+--
+-- require("indent_blankline").setup {
+--     show_end_of_line = true,
+-- }

@@ -254,7 +254,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Reading assistant
-        use({
+  use({
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VimEnter",
 		config = function()
