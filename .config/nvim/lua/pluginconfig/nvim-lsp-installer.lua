@@ -49,10 +49,6 @@ lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
 for _, server in ipairs(servers) do
 	local opts = { capabilities = capabilities, on_attach = on_attach }
 
-	if server.name == "rust_analyzer" then
-		require("rust-tools").setup(opts)
-	end
-
 	if server.name == "sumneko_lua" then
 		local settings = {
 			Lua = {
@@ -70,6 +66,11 @@ for _, server in ipairs(servers) do
 		table.insert(opts, settings)
 	end
 
-	lspconfig[server.name].setup(opts)
+	if server.name == "rust_analyzer" then
+		require("rust-tools").setup({ server = opts })
+  else
+    lspconfig[server.name].setup(opts)
+  end
+
 	vim.cmd([[ do User LspAttachBuffers ]])
 end

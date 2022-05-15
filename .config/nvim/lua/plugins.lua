@@ -308,7 +308,12 @@ return require("packer").startup(function(use)
 		after = { "nvim-lspconfig" },
 	})
 
+	--------------------------------
+	-- Markdown
+  use({ "iamcco/markdown-preview.nvim", ft = { "markdown" }, run = ":call mkdp#util#install()" })
+
   if packer_bootstrap then
     require('packer').sync()
   end
+
 end)
