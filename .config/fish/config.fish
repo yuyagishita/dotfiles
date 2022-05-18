@@ -51,9 +51,6 @@ end
      attach_tmux_session_if_needed
  end
 
-set -gx VOLTA_HOME "$HOME/.volta"
-set -gx PATH "$VOLTA_HOME/bin" $PATH
-
 # google cloud sdk
 source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 
