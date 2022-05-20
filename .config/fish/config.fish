@@ -1,5 +1,7 @@
 # starship
 starship init fish | source
+
+# fzf
 set -U FZF_LEGACY_KEYBINDINGS 0
 
 # go
@@ -31,25 +33,36 @@ end
 eval (gh completion -s fish| source)
 
 # tmux
-function attach_tmux_session_if_needed
-    set ID (tmux list-sessions)
-    if test -z "$ID"
-        tmux new-session
-        return
-    end
+# function attach_tmux_session_if_needed
+#     set ID (tmux list-sessions)
+#     if test -z "$ID"
+#         tmux new-session
+#         return
+#     end
+#
+#     set new_session "Create New Session" 
+#     set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
+#     if test "$ID" = "$new_session"
+#         tmux new-session
+#     else if test -n "$ID"
+#         tmux attach-session -t "$ID"
+#     end
+# end
+#  
+#  if test -z $TMUX && status --is-login
+#      attach_tmux_session_if_needed
+#  end
 
-    set new_session "Create New Session" 
-    set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
-    if test "$ID" = "$new_session"
-        tmux new-session
-    else if test -n "$ID"
-        tmux attach-session -t "$ID"
-    end
+# zellij
+if set -q ZELLIJ
+  if status is-interactive
+    zellij setup --generate-completion fish | source
+    zellij setup --generate-auto-start fish | source
+  end
+
+else
+  zellij
 end
- 
- if test -z $TMUX && status --is-login
-     attach_tmux_session_if_needed
- end
 
 # google cloud sdk
 source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
