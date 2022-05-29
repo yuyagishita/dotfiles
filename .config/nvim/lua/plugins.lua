@@ -166,6 +166,13 @@ return require("packer").startup(function(use)
 			require("telescope").load_extension("packer")
 		end,
 	})
+  use({
+    "nvim-telescope/telescope-ui-select.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("ui-select")
+		end,
+	})
 
 	--------------------------------
 	-- Manual
