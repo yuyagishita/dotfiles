@@ -305,6 +305,17 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+  --------------------------------
+  -- Git
+  use({ 
+    "TimUntersberger/neogit",
+    event = "VimEnter",
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require("pluginconfig/neogit")
+    end,
+    })
+
 	--------------------------------------------------------------
 	-- Programming Languages
 

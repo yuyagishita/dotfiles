@@ -295,7 +295,7 @@ vim.api.nvim_set_keymap("n", "[fuzzy-finder]", "<Nop>", { noremap = true, silent
 vim.api.nvim_set_keymap("v", "[fuzzy-finder]", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "z", "[fuzzy-finder]", {})
 vim.api.nvim_set_keymap("v", "z", "[fuzzy-finder]", {})
-vim.api.nvim_set_keymap("n", "<Leader><Leader>", "<Cmd>Telescope my_mru<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<Leader><Leader>", "<Cmd>Telescope my_mru<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
 	"n",
 	"[fuzzy-finder]<Leader>",
@@ -310,7 +310,7 @@ vim.api.nvim_set_keymap(
 	"<Cmd>Telecwoc diagnosticsscope find_files<CR>",
 	{ noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap("n", "[fuzzy-finder].", "<Cmd>Telescope my_mru<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "[fuzzy-finder].", "<Cmd>Telescope my_mru<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>,", "<Cmd>Telescope grep_prompt<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[fuzzy-finder],", ":<C-u>Telescope grep_prompt<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "[fuzzy-finder]>", "<Cmd>Telescope my_grep_in_dir<CR>", { noremap = true, silent = true })

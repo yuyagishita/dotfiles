@@ -27,5 +27,26 @@ zle -N fzf-ghq
 # bindkey '^[s' fzf-ghq
 bindkey '^g' fzf-ghq
 
+# aliases
+# ls
+alias la='ls -aF --color=auto'
+alias lla='ls -alF --color=auto'
+alias lal='ls -alF --color=auto'
+alias ls='ls --color=auto'
+alias ll='ls -l --color=auto'
+alias l.='ls -d .[a-zA-Z]* --color=auto'
+if type exa > /dev/null; then
+  alias la='exa -aF --icons'
+  alias lla='exa -alF --icons'
+  alias lal='exa -alF --icons'
+  alias ls='exa --icons'
+  alias ll='exa -l --icons'
+  alias l.='exa -d .[a-zA-Z]* --icons'
+fi
+
+# git & docker
+alias g=git
+alias d=docker
+
 # Starship
 eval "$(starship init zsh)"
