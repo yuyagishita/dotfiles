@@ -2,10 +2,10 @@
 	name = yuyagishita
 	email = yu.yagishita1995@gmail.com
 [core]
-  excludesfile = /Users/yu.yagishita/.gitignore_global
+#  excludesfile = /Users/yu.yagishita/.gitignore_global
   editor = nvim
 [includeIf "gitdir:~/webcrew/git/"]
-  path = ~/.gitconfig_company
+#  path = ~/.gitconfig_company
 [push]
   default = simple
 [color]
