@@ -7,6 +7,21 @@ vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
 
+  -- ------------------------------------------------------------
+	-- Installer
+
+	-- Plugin Manager
+	use({ "wbthomason/packer.nvim", opt = true })
+
+	-- External package Installer
+	use({
+		"williamboman/mason.nvim",
+		event = "VimEnter",
+		config = function()
+			require("pluginconfig/mason")
+		end,
+	})
+
 	-- ------------------------------------------------------------
 	-- Library
 
@@ -79,7 +94,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Language Server Protocol(LSP)
-	use({
+use({
 		"neovim/nvim-lspconfig",
 		after = { "cmp-nvim-lsp" },
 		config = function()
@@ -87,11 +102,10 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"williamboman/nvim-lsp-installer",
-		requires = { { "RRethy/vim-illuminate", opt = true } },
-		after = { "nvim-lspconfig", "vim-illuminate", "nlsp-settings.nvim", "rust-tools.nvim" },
+		"williamboman/mason-lspconfig.nvim",
+		after = { "mason.nvim", "nvim-lspconfig", "cmp-nvim-lsp", "nlsp-settings.nvim" },
 		config = function()
-			require("pluginconfig/nvim-lsp-installer")
+			require("pluginconfig/mason-lspconfig")
 		end,
 	})
 	use({
@@ -107,7 +121,7 @@ return require("packer").startup(function(use)
 	-- LSP's UI
 	use({
 		"tami5/lspsaga.nvim",
-		after = "nvim-lsp-installer",
+		after = "mason.nvim",
 		config = function()
 			require("pluginconfig/lspsaga")
 		end,
@@ -118,7 +132,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"folke/trouble.nvim",
-		after = { "nvim-lsp-installer", "lsp-colors.nvim" },
+		after = { "mason.nvim", "lsp-colors.nvim" },
 		config = function()
 			require("pluginconfig/trouble")
 		end,
@@ -133,7 +147,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"j-hui/fidget.nvim",
-		after = "nvim-lsp-installer",
+		after = "mason.nvim",
 		config = function()
 			require("pluginconfig/fidget")
 		end,
@@ -214,6 +228,13 @@ return require("packer").startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
 			require("pluginconfig/lualine")
+		end,
+	})
+  use({
+		"SmiteshP/nvim-navic",
+		module = "nvim-navic",
+		setup = function()
+			require("pluginconfig/nvim-navic")
 		end,
 	})
 
@@ -329,6 +350,10 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Markdown
   use({ "iamcco/markdown-preview.nvim", ft = { "markdown" }, run = ":call mkdp#util#install()" })
+
+  --------------------------------
+	-- Neovim Lua development
+  use({ "folke/lua-dev.nvim", module = "lua-dev" })
 
   if packer_bootstrap then
     require('packer').sync()
