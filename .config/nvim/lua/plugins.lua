@@ -202,7 +202,8 @@ use({
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		event = "VimEnter",
+    after = { colorscheme },
+		-- event = "VimEnter",
 		run = ":TSUpdate",
 		config = function()
 			require("pluginconfig/nvim-treesitter")
