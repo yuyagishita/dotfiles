@@ -353,6 +353,10 @@ use({
   use({ "iamcco/markdown-preview.nvim", ft = { "markdown" }, run = ":call mkdp#util#install()" })
 
   --------------------------------
+  -- Carbon
+  use({ "carbon-language/vim-carbon-lang" })
+
+  --------------------------------
 	-- Neovim Lua development
   use({ "folke/lua-dev.nvim", module = "lua-dev" })
 
