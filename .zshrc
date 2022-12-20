@@ -51,9 +51,13 @@ if type exa > /dev/null; then
   alias l.='exa -d .[a-zA-Z]* --icons'
 fi
 
-# git & docker
+# git & docker & k8s
 alias g=git
 alias d=docker
+alias k=kubectl
 
 # Starship
 eval "$(starship init zsh)"
+
+# kubectl
+source <(kubectl completion zsh)
