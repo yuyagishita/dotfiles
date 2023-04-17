@@ -51,7 +51,7 @@ return require("packer").startup(function(use)
 	})
 
 	--------------------------------------------------------------
-	-- LSP & completion
+	-- LSP & completion & DAP
 
 	--------------------------------
 	-- Auto Completion
@@ -94,7 +94,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Language Server Protocol(LSP)
-use({
+  use({
 		"neovim/nvim-lspconfig",
 		after = { "cmp-nvim-lsp" },
 		config = function()
@@ -152,6 +152,10 @@ use({
 			require("pluginconfig/fidget")
 		end,
 	})
+
+	--------------------------------
+	-- Debug Adapter Protocol(DAP)
+  use({"mfussenegger/nvim-dap"})
 
 	--------------------------------------------------------------
 	-- FuzzyFinders
@@ -355,6 +359,17 @@ use({
   --------------------------------
   -- Carbon
   use({ "carbon-language/vim-carbon-lang" })
+
+  --------------------------------
+  -- Haskell
+  use({
+    'mrcjkb/haskell-tools.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim', -- optional
+    },
+    branch = '1.x.x', -- recommended
+  })
 
   --------------------------------
 	-- Neovim Lua development

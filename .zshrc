@@ -61,3 +61,6 @@ eval "$(starship init zsh)"
 
 # kubectl
 source <(kubectl completion zsh)
+
+# Haskell
+[ -f "/home/yu/.ghcup/env" ] && source "/home/yu/.ghcup/env" # ghcup-env

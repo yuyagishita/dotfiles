@@ -42,8 +42,9 @@ local on_attach = function(client, bufnr)
 end
 
 local lspconfig = require("lspconfig")
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local opts = { capabilities = capabilities, on_attach = on_attach }
 
 require("mason-lspconfig").setup_handlers({
@@ -58,8 +59,8 @@ require("mason-lspconfig").setup_handlers({
 --			lspconfig.rust_analyzer.setup({})
 --		end
 --	end,
-	["sumneko_lua"] = function()
-		local has_lua_dev, lua_dev = pcall(require, "lua-dev")
+	["lua_ls"] = function()
+		local has_lua_dev, lua_dev = pcall(require, "neodev")
 		if has_lua_dev then
 			local l = lua_dev.setup({
 				library = {
@@ -73,9 +74,9 @@ require("mason-lspconfig").setup_handlers({
 				runtime_path = false,
 				lspconfig = opts,
 			})
-			lspconfig.sumneko_lua.setup(l)
+			lspconfig.lua_ls.setup(l)
 		else
-			lspconfig.sumneko_lua.setup({
+			lspconfig.lua_ls.setup({
 				settings = {
 					Lua = {
 						diagnostics = {
