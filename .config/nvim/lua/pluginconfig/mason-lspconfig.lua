@@ -38,53 +38,52 @@ local on_attach = function(client, bufnr)
 
 	-- require("lsp_signature").on_attach()
 	-- require("illuminate").on_attach(client)
-	require("nvim-navic").attach(client, bufnr)
+	-- require("nvim-navic").attach(client, bufnr)
 end
 
 local lspconfig = require("lspconfig")
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local opts = { capabilities = capabilities, on_attach = on_attach }
+
+-- require("clangd_extensions").setup({ server = opts })
 
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
-		lspconfig[server_name].setup(opts)
+		lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
 	end,
---	["rust_analyzer"] = function()
---		local has_rust_tools, rust_tools = pcall(require, "rust-tools")
---		if has_rust_tools then
---			rust_tools.setup({ server = opts })
---		else
---			lspconfig.rust_analyzer.setup({})
---		end
---	end,
-	["lua_ls"] = function()
-		local has_lua_dev, lua_dev = pcall(require, "neodev")
-		if has_lua_dev then
-			local l = lua_dev.setup({
-				library = {
-					vimruntime = true, -- runtime path
-					types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
-					-- plugins = false, -- installed opt or start plugins in packpath
-					-- you can also specify the list of plugins to make available as a workspace library
-					-- plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
-					plugins = { "nvim-treesitter", "plenary.nvim" },
-				},
-				runtime_path = false,
-				lspconfig = opts,
-			})
-			lspconfig.lua_ls.setup(l)
+  ["clangd"] = function()
+    local has_clangd_extensions, clangd_extensions = pcall(require, "clangd_extensions")
+    if has_clangd_extensions then
+      capabilities.offsetEncoding = { "utf-16" }
+      clangd_extensions.setup({ server = { capabilities = capabilities, on_attach = on_attach } })
+    end
+  end,
+  ["hls"] = function()
+    local has_haskell_tools, haskell_tools = pcall(require, "haskell-tools")
+    if has_haskell_tools then
+      haskell_tools.setup({ server = { capabilities = capabilities, on_attach = on_attach } })
+    else
+      lspconfig.hls.setup({ server = { capabilities = capabilities, on_attach = on_attach } })
+    end
+  end,
+	["rust_analyzer"] = function()
+		local has_rust_tools, rust_tools = pcall(require, "rust-tools")
+		if has_rust_tools then
+			rust_tools.setup({ server = { capabilities = capabilities, on_attach = on_attach } })
 		else
-			lspconfig.lua_ls.setup({
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-					},
-				},
-			})
+			lspconfig.rust_analyzer.setup({})
 		end
 	end,
+	["lua_ls"] = function()
+    lspconfig.lua_ls.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+		  settings = {
+        Lua = {
+		 		  diagnostics = {
+		 			  globals = { "vim" },
+		 		  },
+		 	  },
+		  },
+    })
+		end,
 })

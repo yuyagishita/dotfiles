@@ -346,6 +346,12 @@ return require("packer").startup(function(use)
 	-- Programming Languages
 
 	--------------------------------
+	-- C++
+  use({
+    "p00f/clangd_extensions.nvim"
+  })
+
+	--------------------------------
 	-- Rust
 	use({
 		"simrat39/rust-tools.nvim",
