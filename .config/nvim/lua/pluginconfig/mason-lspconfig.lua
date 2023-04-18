@@ -44,7 +44,8 @@ end
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- require("clangd_extensions").setup({ server = opts })
+-- setup_handlers内にいれても正常に動作しないので、手動実行
+require("clangd_extensions").setup({ server = { capabilities = capabilities, on_attach = on_attach } })
 
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
@@ -55,6 +56,8 @@ require("mason-lspconfig").setup_handlers({
     if has_clangd_extensions then
       capabilities.offsetEncoding = { "utf-16" }
       clangd_extensions.setup({ server = { capabilities = capabilities, on_attach = on_attach } })
+    else
+      lspconfig.clangd.setup({ server = { capabilities = capabilities, on_attach = on_attach } })
     end
   end,
   ["hls"] = function()
