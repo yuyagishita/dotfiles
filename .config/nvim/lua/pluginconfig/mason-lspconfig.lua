@@ -32,6 +32,7 @@ local on_attach = function(client, bufnr)
 	-- buf_set_keymap("n", "[lsp]rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "[lsp]a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+	-- buf_set_keymap("n", "[lsp]e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	buf_set_keymap("n", "[lsp]e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 	buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
@@ -61,6 +62,9 @@ lspconfig.lua_ls.setup({
  	  },
   },
 })
+-- haskell-toolsが起動しない
+-- require("haskell-tools").setup({ hls = { autostart = true, on_attach = on_attach }})
+lspconfig.hls.setup({ capabilities = capabilities, on_attach = on_attach })
 
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
@@ -76,14 +80,14 @@ require("mason-lspconfig").setup_handlers({
   --   end
   -- end,
   -- haskellだけsetup_handlers内に入れても動く。
-  ["hls"] = function()
-    local has_haskell_tools, haskell_tools = pcall(require, "haskell-tools")
-    if has_haskell_tools then
-      haskell_tools.setup({ server = { capabilities = capabilities, on_attach = on_attach } })
-    else
-      lspconfig.hls.setup({ { capabilities = capabilities, on_attach = on_attach } })
-    end
-  end,
+  -- ["hls"] = function()
+  --   local has_haskell_tools, haskell_tools = pcall(require, "haskell-tools")
+  --   if has_haskell_tools then
+  --     haskell_tools.setup({ hls = { on_attach = on_attach } })
+  --   else
+  --     lspconfig.hls.setup({ { capabilities = capabilities, on_attach = on_attach } })
+  --   end
+  -- end,
 	-- ["rust_analyzer"] = function()
 	-- 	local has_rust_tools, rust_tools = pcall(require, "rust-tools")
 	-- 	if has_rust_tools then
