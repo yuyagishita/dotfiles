@@ -58,6 +58,8 @@ exec swayidle -w \
 
 # Inhibit idle if a window is in fullscreen
 for_window [shell=".*"] inhibit_idle fullscreen
+for_window [app_id="lutris"] floating enable
+for_window [class="steam"] floating enable
 
 ### Input configuration
 #
