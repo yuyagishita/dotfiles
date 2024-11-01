@@ -120,7 +120,7 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- LSP's UI
 	use({
-		"tami5/lspsaga.nvim",
+		"nvimdev/lspsaga.nvim",
 		after = "mason.nvim",
 		config = function()
 			require("pluginconfig/lspsaga")
@@ -354,8 +354,8 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Rust
 	use({
-		"simrat39/rust-tools.nvim",
-		after = { "nvim-lspconfig" },
+		"mrcjkb/rustaceanvim",
+		-- after = { "nvim-lspconfig" },
 	})
 
 	--------------------------------
@@ -380,6 +380,52 @@ return require("packer").startup(function(use)
   --------------------------------
 	-- Neovim Lua development
   use({ "folke/lua-dev.nvim", module = "lua-dev" })
+
+
+  	----------------------------------------------------------------
+  	---- Obsidian
+  use({
+    "epwalsh/obsidian.nvim",
+    tag = "*",  -- recommended, use latest release instead of latest commit
+    requires = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+
+      -- see below for full list of optional dependencies 👇
+    },
+    config = function()
+      require("obsidian").setup({
+        workspaces = {
+          {
+            name = "obsidian",
+            path = "~/ghq/github.com/yuyagishita/obsidian",
+          },
+        },
+        
+        daily_notes = {
+          -- Optional, if you keep daily notes in a separate directory.
+          folder = "daily-notes",
+          -- Optional, if you want to change the date format for the ID of daily notes.
+          date_format = "%Y-%m-%d",
+          -- Optional, if you want to change the date format of the default alias of daily notes.
+          -- alias_format = "%B %-d, %Y",
+          -- Optional, default tags to add to each new daily note created.
+          -- default_tags = { "daily-notes" },
+          -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+          template = "Daily Notes.md"
+        },
+
+        templates = {
+          folder = "templates",
+        },
+        
+        ui = {
+          enable = false
+        },
+        -- see below for full list of options 👇
+      })
+    end,
+  })
 
   if packer_bootstrap then
     require('packer').sync()

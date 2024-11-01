@@ -5,6 +5,7 @@ require("mason-lspconfig").setup()
 -- selene: allow(unused_variable)
 ---@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
+  print('LSP attached to buffer ' .. bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
@@ -37,7 +38,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 	buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", "[lsp]q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	buf_set_keymap("n", "[lsp]f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	buf_set_keymap("n", "[lsp]f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
 	-- require("lsp_signature").on_attach()
 	-- require("illuminate").on_attach(client)
@@ -50,7 +51,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- setup_handlers内にいれても正常に動作しないので、手動実行
 -- setup_handlersを使うとhls以外「0 client(s) attached to this buffer」になるケースがほとんど
 require("clangd_extensions").setup({ server = { capabilities = capabilities, on_attach = on_attach } })
-require("rust-tools").setup({ server = { capabilities = capabilities, on_attach = on_attach } })
+-- require("rust-tools").setup({ server = { capabilities = capabilities, on_attach = on_attach } })
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -68,7 +69,7 @@ lspconfig.hls.setup({ capabilities = capabilities, on_attach = on_attach })
 
 -- Scala
 -- nvim-metalsは使わない。lspconfigでまとめたいので。
-lspconfig.metals.setup{}
+lspconfig.metals.setup({ capabilities = capabilities, on_attach = on_attach })
 
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
