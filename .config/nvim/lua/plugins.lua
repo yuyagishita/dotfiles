@@ -382,8 +382,8 @@ return require("packer").startup(function(use)
   use({ "folke/lua-dev.nvim", module = "lua-dev" })
 
 
-  	----------------------------------------------------------------
-  	---- Obsidian
+  ----------------------------------------------------------------
+  ---- Obsidian
   use({
     "epwalsh/obsidian.nvim",
     tag = "*",  -- recommended, use latest release instead of latest commit
@@ -393,6 +393,7 @@ return require("packer").startup(function(use)
 
       -- see below for full list of optional dependencies 👇
     },
+    after = "nvim-cmp",
     config = function()
       require("pluginconfig/obsidian")
     end,

@@ -64,12 +64,17 @@ lspconfig.lua_ls.setup({
   },
 })
 -- haskell-toolsが起動しない
--- require("haskell-tools").setup({ hls = { autostart = true, on_attach = on_attach }})
 lspconfig.hls.setup({ capabilities = capabilities, on_attach = on_attach })
 
 -- Scala
 -- nvim-metalsは使わない。lspconfigでまとめたいので。
-lspconfig.metals.setup({ capabilities = capabilities, on_attach = on_attach })
+lspconfig.metals.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  cmd = { "metals" },
+  filetypes = { "scala", "sbt" },
+  root_dir = lspconfig.util.root_pattern("build.sbt", "build.sc", "build.gradle", ".git"),
+})
 
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
