@@ -331,57 +331,57 @@ vim.keymap.set("n", "gq", "<Cmd>nohlsearch<CR>", { noremap = true, silent = true
 -- 	return true
 -- end
 -- 
--- -- move buffer
--- vim.keymap.set("n", "<F2>", function()
--- 	if is_normal_buffer() then
--- 		vim.cmd([[execute "bprev"]])
--- 	end
--- end, { noremap = true, silent = true })
--- vim.keymap.set("n", "<F3>", function()
--- 	if is_normal_buffer() then
--- 		vim.cmd([[execute "bnext"]])
--- 	end
--- end, { noremap = true, silent = true })
--- vim.keymap.set("n", "H", function()
--- 	if is_normal_buffer() then
--- 		vim.cmd([[execute "bprev"]])
--- 	end
--- end, { noremap = true, silent = true })
--- vim.keymap.set("n", "L", function()
--- 	if is_normal_buffer() then
--- 		vim.cmd([[execute "bnext"]])
--- 	end
--- end, { noremap = true, silent = true })
--- vim.keymap.set("n", "<C-S-Left>", function()
--- 	if is_normal_buffer() then
--- 		vim.cmd([[execute "bprev"]])
--- 	end
--- end, { noremap = true, silent = true })
--- vim.keymap.set("n", "<C-S-Right>", function()
--- 	if is_normal_buffer() then
--- 		vim.cmd([[execute "bnext"]])
--- 	end
--- end, { noremap = true, silent = true })
--- 
--- vim.keymap.set("n", "[q", ":cprevious<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "]q", ":cnext<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "[Q", ":cfirst<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "]Q", ":clast<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "[l", ":lprevious<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "]l", ":lnext<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "[L", ":lfirst<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "]L", ":llast<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "[b", ":bprevious<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "]b", ":bnext<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "[B", ":bfirst<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "]B", ":blast<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "[t", ":tabprevious<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "]t", ":tabnext<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "[T", ":tabfirst<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "]T", ":tablast<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "[;", "g;zz", { noremap = true, silent = true })
--- vim.keymap.set("n", "];", "g,zz", { noremap = true, silent = true })
--- 
+-- move buffer
+vim.keymap.set("n", "<F2>", function()
+	if is_normal_buffer() then
+		vim.cmd([[execute "bprev"]])
+	end
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<F3>", function()
+	if is_normal_buffer() then
+		vim.cmd([[execute "bnext"]])
+	end
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "H", function()
+	if is_normal_buffer() then
+		vim.cmd([[execute "bprev"]])
+	end
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "L", function()
+	if is_normal_buffer() then
+		vim.cmd([[execute "bnext"]])
+	end
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-Left>", function()
+	if is_normal_buffer() then
+		vim.cmd([[execute "bprev"]])
+	end
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-Right>", function()
+	if is_normal_buffer() then
+		vim.cmd([[execute "bnext"]])
+	end
+end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "[q", ":cprevious<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "]q", ":cnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[Q", ":cfirst<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "]Q", ":clast<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[l", ":lprevious<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "]l", ":lnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[L", ":lfirst<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "]L", ":llast<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[b", ":bprevious<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "]b", ":bnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[B", ":bfirst<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "]B", ":blast<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[t", ":tabprevious<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "]t", ":tabnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[T", ":tabfirst<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "]T", ":tablast<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[;", "g;zz", { noremap = true, silent = true })
+vim.keymap.set("n", "];", "g,zz", { noremap = true, silent = true })
+
 -- -- switch quickfix/location list
 -- vim.keymap.set("n", "[SubLeader]q", "<Cmd>copen<CR>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "[SubLeader]l", "<Cmd>lopen<CR>", { noremap = true, silent = true })

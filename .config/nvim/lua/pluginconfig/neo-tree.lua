@@ -72,7 +72,8 @@ require("neo-tree").setup({
 		-- window like netrw would, regardless of window.position
 		-- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
 		window = {
-			position = "left",
+		  -- position = "left",
+			position = "float",
 			width = 30,
 			mappings = {
 				["<2-LeftMouse>"] = "open",
