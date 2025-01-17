@@ -409,20 +409,20 @@ return require("packer").startup(function(use)
 
   ----------------------------------------------------------------
   ---- Obsidian
-  use({
-    "epwalsh/obsidian.nvim",
-    tag = "*",  -- recommended, use latest release instead of latest commit
-    requires = {
-      -- Required.
-      "nvim-lua/plenary.nvim",
+  -- use({
+  --   "epwalsh/obsidian.nvim",
+  --   tag = "*",  -- recommended, use latest release instead of latest commit
+  --   requires = {
+  --     -- Required.
+  --     "nvim-lua/plenary.nvim",
 
-      -- see below for full list of optional dependencies 👇
-    },
-    after = "nvim-cmp",
-    config = function()
-      require("pluginconfig/obsidian")
-    end,
-  })
+  --     -- see below for full list of optional dependencies 👇
+  --   },
+  --   after = "nvim-cmp",
+  --   config = function()
+  --     require("pluginconfig/obsidian")
+  --   end,
+  -- })
 
   if packer_bootstrap then
     require('packer').sync()
