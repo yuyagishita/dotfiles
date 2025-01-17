@@ -19,6 +19,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # fzf
+source <(fzf --zsh)
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 fzf-ghq() {
@@ -31,7 +32,6 @@ fzf-ghq() {
   zle clear-screen
 }
 zle -N fzf-ghq
-# bindkey '^[s' fzf-ghq
 bindkey '^g' fzf-ghq
 
 # aliases
