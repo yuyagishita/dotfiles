@@ -496,14 +496,14 @@ vim.keymap.set("n", "];", "g,zz", { noremap = true, silent = true })
 -- vim.keymap.set("n", "[[", "[m", { noremap = true, silent = true })
 -- vim.keymap.set("n", "]]", "]m", { noremap = true, silent = true })
 -- 
--- -- command mode
--- vim.keymap.set("c", "<C-x>", "<C-r>=expand('%:p:h')<CR>/", { noremap = true, silent = false }) -- expand path
--- vim.keymap.set("c", "<C-z>", "<C-r>=expand('%:p:r')<CR>", { noremap = true, silent = false }) -- expand file (not ext)
--- vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true, silent = false })
--- vim.keymap.set("c", "<C-n>", "<Down>", { noremap = true, silent = false })
--- -- vim.keymap.set("c", "<Up>", "<C-p>", { noremap = true, silent = false })
--- -- vim.keymap.set("c", "<Down>", "<C-n>", { noremap = true, silent = false })
--- vim.o.cedit = "<C-c>" -- command window
+-- command mode
+vim.keymap.set("c", "<C-x>", "<C-r>=expand('%:p:h')<CR>/", { noremap = true, silent = false }) -- expand path
+vim.keymap.set("c", "<C-z>", "<C-r>=expand('%:p:r')<CR>", { noremap = true, silent = false }) -- expand file (not ext)
+vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true, silent = false })
+vim.keymap.set("c", "<C-n>", "<Down>", { noremap = true, silent = false })
+-- vim.keymap.set("c", "<Up>", "<C-p>", { noremap = true, silent = false })
+-- vim.keymap.set("c", "<Down>", "<C-n>", { noremap = true, silent = false })
+vim.o.cedit = "<C-c>" -- command window
 -- 
 -- -- terminal mode
 -- vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = false })
