@@ -289,7 +289,6 @@ return require("packer").startup(function(use)
 	-- Terminal
 	use({
 		"akinsho/toggleterm.nvim",
-		event = "VimEnter",
 		config = function()
 			require("pluginconfig/toggleterm")
 		end,
@@ -356,12 +355,12 @@ return require("packer").startup(function(use)
   })
   use({
 		"akinsho/git-conflict.nvim",
-		event = "VeryLazy",
-		config = true,
-	})
+		config = function()
+		  require('git-conflict').setup()
+		end,
+  })
   use({
 		"sindrets/diffview.nvim",
-		event = "VeryLazy",
 		config = function()
 			require("pluginconfig/diffview")
 		end,
