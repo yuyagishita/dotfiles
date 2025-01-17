@@ -275,12 +275,25 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	------------------------------------------------------------
+	-- Standard Feature Enhancement
+  --
 	--------------------------------
 	-- Help
 
 	--------------------------------
 	-- Commandline
 	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
+
+	--------------------------------
+	-- Terminal
+	use({
+		"akinsho/toggleterm.nvim",
+		event = "VimEnter",
+		config = function()
+			require("pluginconfig/toggleterm")
+		end,
+	})
 
 	--------------------------------------------------------------
 	-- Coding
@@ -340,7 +353,19 @@ return require("packer").startup(function(use)
     config = function()
       require("pluginconfig/neogit")
     end,
-    })
+  })
+  use({
+		"akinsho/git-conflict.nvim",
+		event = "VeryLazy",
+		config = true,
+	})
+  use({
+		"sindrets/diffview.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("pluginconfig/diffview")
+		end,
+  })
 
 	--------------------------------------------------------------
 	-- Programming Languages
