@@ -53,7 +53,8 @@ vim.o.cursorlineopt = "number"
 -- ステータスライン関連
 -- vim.o.laststatus = 2
 vim.o.laststatus = 3
-vim.o.shortmess = "aItToOF"
+-- vim.o.shortmess = "aItToOF"
+vim.o.shortmess = "atToOF"
 vim.opt.fillchars = {
 	horiz = "━",
 	horizup = "┻",
