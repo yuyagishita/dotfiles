@@ -280,6 +280,16 @@ return require("packer").startup(function(use)
   --
 	--------------------------------
 	-- Help
+  --
+  --------------------------------
+	-- Quickfix
+	use({
+		"gabrielpoca/replacer.nvim",
+		event = "VimEnter",
+		config = function()
+			require("pluginconfig/replacer")
+		end,
+	})
 
 	--------------------------------
 	-- Commandline
