@@ -1,5 +1,6 @@
 require('base')
 require('options')
 require('display')
-require('plugins')
+require('lazy')
 require('mappings')
+
