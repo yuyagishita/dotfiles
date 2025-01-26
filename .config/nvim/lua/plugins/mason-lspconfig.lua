@@ -4,7 +4,7 @@ return {
     event = "VeryLazy",
 		dependencies = {
 			{ "folke/neoconf.nvim" },
-			{ "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" },
+			{ "weilbith/nvim-lsp-smag" },
 		},
     config = function()
       -- Use an on_attach function to only map the following keys
@@ -16,17 +16,13 @@ return {
       	local function buf_set_keymap(...)
       		vim.api.nvim_buf_set_keymap(bufnr, ...)
       	end
-      
       	local function buf_set_option(...)
       		vim.api.nvim_buf_set_option(bufnr, ...)
       	end
-      
       	-- Enable completion triggered by <c-x><c-o>
       	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-      
       	-- Mappings.
       	local opts = { noremap = true, silent = true }
-      
       	-- See `:help vim.lsp.*` for documentation on any of the below functions
       	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
       	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -46,15 +42,15 @@ return {
       	buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
       	buf_set_keymap("n", "[lsp]q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
       	buf_set_keymap("n", "[lsp]f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-      
+
       	-- require("lsp_signature").on_attach()
       	-- require("illuminate").on_attach(client)
       	-- require("nvim-navic").attach(client, bufnr)
       end
-      
+
       local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      
+
       -- setup_handlers内にいれても正常に動作しないので、手動実行
       -- setup_handlersを使うとhls以外「0 client(s) attached to this buffer」になるケースがほとんど
       require("clangd_extensions").setup({ server = { capabilities = capabilities, on_attach = on_attach } })
@@ -72,7 +68,7 @@ return {
       })
       -- haskell-toolsが起動しない
       lspconfig.hls.setup({ capabilities = capabilities, on_attach = on_attach })
-      
+
       -- Scala
       -- nvim-metalsは使わない。lspconfigでまとめたいので。
       lspconfig.metals.setup({
@@ -82,7 +78,7 @@ return {
         filetypes = { "scala", "sbt" },
         root_dir = lspconfig.util.root_pattern("build.sbt", "build.sc", "build.gradle", ".git"),
       })
-      
+
       require("mason-lspconfig").setup_handlers({
       	function(server_name)
       		lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })

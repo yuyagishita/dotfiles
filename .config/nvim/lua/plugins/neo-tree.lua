@@ -4,9 +4,9 @@ return {
 		event = "VeryLazy",
     branch = "main",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-tree/nvim-web-devicons" },
+      { "MunifTanjim/nui.nvim" },
     },
 		config = function()
       -- See ":help neo-tree-highlights" for a list of available highlight groups
