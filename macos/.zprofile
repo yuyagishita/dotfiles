@@ -3,3 +3,7 @@ export PATH="$PATH:/Users/yu.yagishita/Library/Application Support/JetBrains/Too
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/Users/yu.yagishita/Library/Application Support/Coursier/bin"
+# <<< coursier install directory <<<

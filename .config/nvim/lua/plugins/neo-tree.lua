@@ -85,7 +85,7 @@ return {
       		window = {
       		  position = "left",
       			-- position = "float",
-      			width = 30,
+      			width = 40,
       			mappings = {
       				["<2-LeftMouse>"] = "open",
       				["<cr>"] = "open",
