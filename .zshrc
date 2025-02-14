@@ -1,13 +1,12 @@
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 autoload -U compinit promptinit
 compinit
 promptinit
-
-setopt correct
-
-autoload predict-on
-predict-on
-
 prompt walters
+
+# setopt correct
+# autoload predict-on
+# predict-on
 
 # hisotry
 HISTFILE="${ZDATADIR}/zsh_history"
