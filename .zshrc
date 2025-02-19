@@ -59,7 +59,7 @@ alias k=kubectl
 eval "$(starship init zsh)"
 
 # kubectl
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
 
 # Haskell
 #[ -f "/home/yu/.ghcup/env" ] && source "/home/yu/.ghcup/env" # ghcup-env
