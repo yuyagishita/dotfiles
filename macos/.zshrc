@@ -71,3 +71,6 @@ source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 # k8s
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+# GitHub Copilot
+export ENABLE_COPILOT=1
