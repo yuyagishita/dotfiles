@@ -1,3 +1,6 @@
+# ZIG
+fpath=(~/ghq/github.com/ziglang/shell-completions $fpath)
+
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 autoload -U compinit promptinit
 compinit
@@ -64,3 +67,4 @@ eval "$(starship init zsh)"
 # Haskell
 #[ -f "/home/yu/.ghcup/env" ] && source "/home/yu/.ghcup/env" # ghcup-env
 [ -f "/home/yu/.ghcup/env" ] && source "/home/yu/.ghcup/env" # ghcup-env
+
