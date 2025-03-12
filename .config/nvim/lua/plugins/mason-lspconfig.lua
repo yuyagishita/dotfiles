@@ -79,6 +79,12 @@ return {
         root_dir = lspconfig.util.root_pattern("build.sbt", "build.sc", "build.gradle", ".git"),
       })
 
+      -- Zig
+      lspconfig.zls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
       require("mason-lspconfig").setup_handlers({
       	function(server_name)
       		lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
