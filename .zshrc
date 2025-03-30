@@ -68,3 +68,6 @@ eval "$(starship init zsh)"
 #[ -f "/home/yu/.ghcup/env" ] && source "/home/yu/.ghcup/env" # ghcup-env
 [ -f "/home/yu/.ghcup/env" ] && source "/home/yu/.ghcup/env" # ghcup-env
 
+if [ -f ~/.zshrc_private ]; then
+  source ~/.zshrc_private
+fi
