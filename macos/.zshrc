@@ -74,3 +74,5 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # GitHub Copilot
 export ENABLE_COPILOT=1
+
+. "$HOME/.local/bin/env"
