@@ -47,7 +47,7 @@ return {
 
 	--------------------------------
 	-- Snippet Pack
-	{ 
+	{
     "rafamadriz/friendly-snippets", 
     event = "VimEnter" 
   },
@@ -77,11 +77,11 @@ return {
 
 	--------------------------------
 	-- Markdown
-  { 
-    "iamcco/markdown-preview.nvim",
-    ft = { "markdown" }, 
-    run = ":call mkdp#util#install()"
-  },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   ft = { "markdown" }, 
+  --   run = ":call mkdp#util#install()"
+  -- },
 
   --------------------------------
   -- Carbon
