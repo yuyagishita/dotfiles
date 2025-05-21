@@ -1,6 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
+    version = "^1.0.0",
 		event = { "VeryLazy" },
 		build = ":MasonUpdate",
     config = function()
