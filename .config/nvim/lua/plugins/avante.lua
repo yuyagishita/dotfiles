@@ -2,6 +2,9 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
+    cond = function()
+      return vim.env.WORK_ENV == "false"
+    end,
     version = false, -- Never set this value to "*"! Never!
     opts = {
       -- add any opts here

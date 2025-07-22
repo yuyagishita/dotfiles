@@ -1,3 +1,6 @@
+# 会社か自宅かの判定
+export WORK_ENV=true
+
 autoload -U compinit promptinit
 compinit
 promptinit
@@ -73,9 +76,11 @@ source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # GitHub Copilot
-export ENABLE_COPILOT=1
+# export ENABLE_COPILOT=1
 
 . "$HOME/.local/bin/env"
+
+# Python環境
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv virtualenv-init -)"
