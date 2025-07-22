@@ -76,3 +76,6 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export ENABLE_COPILOT=1
 
 . "$HOME/.local/bin/env"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
