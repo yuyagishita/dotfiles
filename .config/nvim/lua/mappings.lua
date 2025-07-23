@@ -383,8 +383,8 @@ vim.keymap.set("n", "[;", "g;zz", { noremap = true, silent = true })
 vim.keymap.set("n", "];", "g,zz", { noremap = true, silent = true })
 
 -- -- switch quickfix/location list
--- vim.keymap.set("n", "[SubLeader]q", "<Cmd>copen<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "[SubLeader]l", "<Cmd>lopen<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[SubLeader]q", "<Cmd>copen<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[SubLeader]l", "<Cmd>lopen<CR>", { noremap = true, silent = true })
 -- 
 -- -- Go to tab by number
 -- -- nnoremap <Leader>1 1gt
