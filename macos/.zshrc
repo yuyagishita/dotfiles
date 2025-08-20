@@ -84,3 +84,8 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
+
+# Gemini CLI
+export GOOGLE_GENAI_USE_VERTEXAI=true
+export GOOGLE_CLOUD_PROJECT="wc-prj000-poc"
+export GOOGLE_CLOUD_LOCATION="us-central1"
