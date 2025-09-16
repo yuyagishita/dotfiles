@@ -89,3 +89,5 @@ eval "$(pyenv init -)"
 export GOOGLE_GENAI_USE_VERTEXAI=true
 export GOOGLE_CLOUD_PROJECT="wc-prj000-poc"
 export GOOGLE_CLOUD_LOCATION="us-central1"
+# export GEMINI_MODEL="gemini-2.5-flash"
+
