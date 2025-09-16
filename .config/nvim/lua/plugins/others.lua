@@ -100,5 +100,13 @@ return {
 
   --------------------------------
 	-- Neovim Lua development
-  { "folke/lua-dev.nvim", module = "lua-dev" }
+  { "folke/lua-dev.nvim", module = "lua-dev" },
+
+ 	--------------------------------------------------------------
+	-- Markup Languages
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = "markdown",
+    opts = {},
+  },
 }
