@@ -84,7 +84,10 @@ return {
       -- Suppress deprecation warning for metals setup
       local original_notify = vim.notify
       vim.notify = function(msg, level, opts)
-        if type(msg) == "string" and msg:match("framework") and msg:match("deprecated") then
+        if type(msg) == "string" and 
+           (msg:match("lspconfig.*deprecated") or 
+            msg:match("framework.*deprecated") or
+            msg:match("stack traceback")) then
           return
         end
         original_notify(msg, level, opts)
