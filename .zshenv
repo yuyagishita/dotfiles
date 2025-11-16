@@ -10,3 +10,5 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 # IntelliJ
 export _JAVA_AWT_WM_NONREPARENTING=1
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
