@@ -7,6 +7,9 @@ config.color_scheme = 'iceberg-dark'  -- または 'catppuccin-mocha' など
 -- 背景の透明度設定（値を小さくするとより透明になります）
 config.window_background_opacity = 0.85  -- 例：0.7は70%の不透明度
 
+-- フォントサイズを設定（デフォルトは通常12.0程度）
+config.font_size = 14.0
+
 -- キーバインドの設定
 config.keys = {
   {

@@ -118,7 +118,7 @@ vim.keymap.set("n", "gT", "<Nop>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "gzz", "zz", { noremap = true, silent = true })
 -- vim.keymap.set("n", "g?", "?", { noremap = true, silent = true })
 vim.keymap.set("n", "gG", "G", { noremap = true, silent = true })
-vim.keymap.set("n", "GG", "G", { noremap = true, silent = true })
+
 -- vim.keymap.set({ "n", "x" }, "gJ", "J", { noremap = true, silent = true })
 -- vim.keymap.set("n", "q", "<Cmd>close<CR>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "RR", "R", { noremap = true, silent = true })
