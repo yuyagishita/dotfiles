@@ -232,6 +232,7 @@ return {
 			{ "hrsh7th/cmp-calc" },
 			{ "f3fora/cmp-spell" },
 			{ "yutkat/cmp-mocword" },
+			{ "L3MON4D3/LuaSnip" },
 			{ "saadparwaiz1/cmp_luasnip" },
 			{
 				"tzachar/cmp-tabnine",
