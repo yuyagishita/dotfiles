@@ -10,6 +10,11 @@ return {
           -- backend = "tmux",
           enabled = false,
         },
+        tools = {
+          claude_company_custom = {
+            cmd = { "claude", "--mcp-config=/Users/yu.yagishita/.claude/.mcp.json" },
+          },
+        },
       },
     },
     keys = {
@@ -75,6 +80,11 @@ return {
         "<leader>ac",
         function() require("sidekick.cli").toggle({ name = "claude", focus = true }) end,
         desc = "Sidekick Toggle Claude",
+      },
+      {
+        "<leader>ad",
+        function() require("sidekick.cli").toggle({ name = "gemini", focus = true }) end,
+        desc = "Sidekick Toggle Gemini",
       },
     },
   }

@@ -85,3 +85,8 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
 
+# Gemini CLI
+export GOOGLE_GENAI_USE_VERTEXAI=true
+export GOOGLE_CLOUD_PROJECT="wc-prj000-prod"
+export GOOGLE_CLOUD_LOCATION="global"
+
