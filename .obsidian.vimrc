@@ -1,33 +1,29 @@
 " Spaceをunmapしてleader keyとして使えるようにする
 unmap <Space>
 
-" Ctrl+wをunmap（ウィンドウ操作のプレフィックスとして使う）
-unmap <C-w>
-
-" ペイン間の移動（Vimライク: Ctrl+w h/j/k/l）
+" ペイン間の移動（Alt+h/j/k/l - システム衝突回避）
 exmap focusLeft obcommand editor:focus-left
-nmap <C-w>h :focusLeft<CR>
+nmap <A-h> :focusLeft<CR>
 
 exmap focusRight obcommand editor:focus-right
-nmap <C-w>l :focusRight<CR>
+nmap <A-l> :focusRight<CR>
 
 exmap focusBottom obcommand editor:focus-bottom
-nmap <C-w>j :focusBottom<CR>
+nmap <A-j> :focusBottom<CR>
 
 exmap focusTop obcommand editor:focus-top
-nmap <C-w>k :focusTop<CR>
+nmap <A-k> :focusTop<CR>
 
-" ペイン分割（Vimライク: Ctrl+w v/s）
+" ペイン分割（Space+s v/h）
 exmap splitVertical obcommand workspace:split-vertical
-nmap <C-w>v :splitVertical<CR>
+nmap <Space>sv :splitVertical<CR>
 
 exmap splitHorizontal obcommand workspace:split-horizontal
-nmap <C-w>s :splitHorizontal<CR>
+nmap <Space>sh :splitHorizontal<CR>
 
-" ペインを閉じる（Vimライク: Ctrl+w q）
+" ペインを閉じる（Space+q）
 exmap closePane obcommand workspace:close
-nmap <C-w>q :closePane<CR>
-nmap <C-w>c :closePane<CR>
+nmap <Space>q :closePane<CR>
 
 " タブ操作
 exmap nextTab obcommand workspace:next-tab
