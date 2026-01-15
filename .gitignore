@@ -25,6 +25,10 @@ node_modules
 bower_components
 fishd.*
 
+# Environment variables
+.env
+.env.*
+
 # Vim
 Session.vim
 .vim/bundle/
