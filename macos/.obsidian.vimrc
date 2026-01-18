@@ -1,18 +1,18 @@
 " Spaceをunmapしてleader keyとして使えるようにする
 unmap <Space>
 
-" ペイン間の移動（Space+h/j/k/l）
+" ペイン間の移動（Ctrl+h/j/k/l）
 exmap focusLeft obcommand editor:focus-left
-nmap <Space>h :focusLeft<CR>
+nmap <C-h> :focusLeft<CR>
 
 exmap focusRight obcommand editor:focus-right
-nmap <Space>l :focusRight<CR>
+nmap <C-l> :focusRight<CR>
 
 exmap focusBottom obcommand editor:focus-bottom
-nmap <Space>j :focusBottom<CR>
+nmap <C-j> :focusBottom<CR>
 
 exmap focusTop obcommand editor:focus-top
-nmap <Space>k :focusTop<CR>
+nmap <C-k> :focusTop<CR>
 
 " ペイン分割（Space+s v/h）
 exmap splitVertical obcommand workspace:split-vertical
