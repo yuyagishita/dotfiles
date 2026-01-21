@@ -183,5 +183,10 @@
   "menus.dashboard.directories.enabled": false,
   "theme.bar.buttons.modules.cpuTemp.enableBorder": false,
   "theme.bar.buttons.modules.cpu.enableBorder": false,
-  "menus.power.showLabel": true
+  "menus.power.showLabel": true,
+  "menus.dashboard.profile.image": "/home/yu/Pictures/icons/Liverpool-logo.jpg",
+  "menus.dashboard.powermenu.avatar.image": "/home/yu/Pictures/icons/Liverpool-logo.jpg",
+  "theme.bar.buttons.workspaces.enableBorder": false,
+  "bar.workspaces.workspaceMask": false,
+  "bar.workspaces.showWsIcons": false
 }
