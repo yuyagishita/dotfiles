@@ -1,0 +1,155 @@
+{
+  "log_level": "LOG_LEVEL_INFO",
+  "log_subprocesses_to_journal": false,
+  "dbus": {
+    "enabled": true,
+    "connect_timeout": "20s",
+    "connect_interval": "0.200s",
+    "notifications": {
+      "enabled": true
+    },
+    "systray": {
+      "enabled": true
+    },
+    "shortcuts": {
+      "enabled": true
+    },
+    "brightness": {
+      "enabled": true,
+      "adjust_step_percent": 5,
+      "min_brightness": 1,
+      "enable_logind": true,
+      "hud_notifications": true
+    },
+    "power": {
+      "enabled": true,
+      "low_percent": 10,
+      "critical_percent": 5,
+      "low_command": "",
+      "critical_command": "",
+      "hud_notifications": true
+    }
+  },
+  "audio": {
+    "enabled": true,
+    "volume_step_percent": 5,
+    "volume_exceed_maximum": false,
+    "hud_notifications": true
+  },
+  "panels": [
+    {
+      "id": "panel0",
+      "edge": "EDGE_TOP",
+      "size": 36,
+      "monitor": "",
+      "modules": [
+        {
+          "spacer": {
+            "size": 12,
+            "expand": false
+          }
+        },
+        {
+          "pager": {
+            "icon_size": 8,
+            "active_monitor_only": false,
+            "scroll_wrap_workspaces": true,
+            "scroll_include_inactive": true,
+            "enable_workspace_names": false,
+            "pinned": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "ignore_windows": [],
+            "preview_width": 200,
+            "follow_window_on_move": false
+          }
+        },
+        {
+          "spacer": {
+            "size": 0,
+            "expand": true
+          }
+        },
+        {
+          "clock": {
+            "time_format": "15:04",
+            "date_format": "01/02",
+            "tooltip_time_format": "15:04:05",
+            "tooltip_date_format": "2006年01月02日 (Mon)",
+            "additional_regions": []
+          }
+        },
+        {
+          "spacer": {
+            "size": 0,
+            "expand": true
+          }
+        },
+        {
+          "notifications": {
+            "icon_size": 18,
+            "notification_icon_size": 48,
+            "default_timeout": "5s",
+            "position": "POSITION_TOP_RIGHT",
+            "margin": 12,
+            "persistent": []
+          }
+        },
+        {
+          "hud": {
+            "notification_icon_size": 48,
+            "timeout": "2s",
+            "position": "POSITION_BOTTOM",
+            "margin": 200
+          }
+        },
+        {
+          "systray": {
+            "icon_size": 18,
+            "menu_icon_size": 18,
+            "auto_hide_statuses": [
+              "STATUS_UNSPECIFIED",
+              "STATUS_PASSIVE"
+            ],
+            "auto_hide_delay": "3s",
+            "pinned": [],
+            "modules": [
+              {
+                "power": {
+                  "icon_size": 18,
+                  "icon_symbolic": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "audio": {
+            "icon_size": 18,
+            "icon_symbolic": true,
+            "command_mixer": "pavucontrol",
+            "enable_source": false
+          }
+        },
+        {
+          "spacer": {
+            "size": 12,
+            "expand": false
+          }
+        }
+      ]
+    }
+  ],
+  "icon_overrides": [],
+  "launch_wrapper": [
+    "sh",
+    "-c"
+  ],
+  "bar.customModules.storage.paths": [
+    "/"
+  ]
+}

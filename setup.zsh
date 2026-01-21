@@ -45,6 +45,8 @@ mkdir -p "$HOME/.config"
 
 create_symlink "$DOTFILES_DIR/.config/hypr" "$HOME/.config/hypr"
 create_symlink "$DOTFILES_DIR/.config/sway" "$HOME/.config/sway"
+create_symlink "$DOTFILES_DIR/.config/waybar" "$HOME/.config/waybar"
+create_symlink "$DOTFILES_DIR/.config/hyprpanel" "$HOME/.config/hyprpanel"
 create_symlink "$DOTFILES_DIR/.config/wezterm" "$HOME/.config/wezterm"
 create_symlink "$DOTFILES_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
 create_symlink "$DOTFILES_DIR/.config/chrome-flags.conf" "$HOME/.config/chrome-flags.conf"
