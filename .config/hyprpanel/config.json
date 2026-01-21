@@ -41,7 +41,7 @@
       "id": "panel0",
       "edge": "EDGE_TOP",
       "size": 36,
-      "monitor": "",
+      "monitor": "DP-2",
       "modules": [
         {
           "spacer": {
@@ -151,5 +151,37 @@
   ],
   "bar.customModules.storage.paths": [
     "/"
-  ]
+  ],
+  "scalingPriority": "hyprland",
+  "bar.layouts": {
+    "*": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "network",
+        "bluetooth",
+        "battery",
+        "systray",
+        "clock",
+        "notifications"
+      ]
+    }
+  },
+  "bar.autoHide": "never",
+  "menus.media.hideAuthor": false,
+  "menus.clock.weather.enabled": false,
+  "menus.dashboard.controls.enabled": true,
+  "menus.dashboard.stats.enabled": true,
+  "menus.dashboard.shortcuts.enabled": false,
+  "menus.dashboard.directories.enabled": false,
+  "theme.bar.buttons.modules.cpuTemp.enableBorder": false,
+  "theme.bar.buttons.modules.cpu.enableBorder": false,
+  "menus.power.showLabel": true
 }

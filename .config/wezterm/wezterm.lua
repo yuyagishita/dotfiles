@@ -13,4 +13,7 @@ config.window_background_opacity = 0.85  -- 例：0.7は70%の不透明度
 -- フォントサイズを設定（デフォルトは通常12.0程度）
 config.font_size = 15.0
 
+-- Kittyグラフィックスプロトコルを有効化（image.nvim用）
+config.enable_kitty_graphics = true
+
 return config

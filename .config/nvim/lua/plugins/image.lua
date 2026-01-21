@@ -8,7 +8,7 @@ return {
     ft = { "markdown" }, -- Markdownファイルでのみロード
     config = function()
       require("image").setup({
-        backend = "kitty", -- wezterm用
+        backend = "kitty", -- kittyグラフィックスプロトコル（wezterm対応）
         integrations = {
           markdown = {
             enabled = true,
