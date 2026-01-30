@@ -1,3 +1,4 @@
+set clipboard=unnamed
 " Spaceをunmapしてleader keyとして使えるようにする
 unmap <Space>
 

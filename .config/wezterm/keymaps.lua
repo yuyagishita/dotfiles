@@ -51,7 +51,30 @@ M.keys = {
     mods = 'LEADER|SHIFT',
     action = act.AdjustPaneSize { 'Right', 5 },
   },
+
+  -- ペイン入れ替え（追加）
+  {
+    key = 'r',
+    mods = 'LEADER',
+    action = act.RotatePanes 'Clockwise',
+  },
+  {
+    key = 'R',
+    mods = 'LEADER|SHIFT',
+    action = act.RotatePanes 'CounterClockwise',
+  },
+  {
+    key = 'w',
+    mods = 'LEADER',
+    action = act.PaneSelect { mode = 'SwapWithActive' },
+  },
   
+  -- ペインズーム（追加・tmux的）
+  {
+    key = 'z',
+    mods = 'LEADER',
+    action = act.TogglePaneZoomState,
+  },
   -- 検索
   {
     key = 'f',
