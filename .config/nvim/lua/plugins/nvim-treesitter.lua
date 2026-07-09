@@ -1,6 +1,7 @@
 return {
   {
 		"nvim-treesitter/nvim-treesitter",
+    branch = "main",
 		event = { "VeryLazy" },
 		build = ":TSUpdateSync",
 		config = function()
