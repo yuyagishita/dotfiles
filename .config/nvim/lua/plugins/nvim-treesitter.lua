@@ -1,7 +1,8 @@
 return {
   {
 		"nvim-treesitter/nvim-treesitter",
-    branch = "main",
+    -- 本プラグインの無効化
+    enabled = false,
 		event = { "VeryLazy" },
 		build = ":TSUpdateSync",
 		config = function()
