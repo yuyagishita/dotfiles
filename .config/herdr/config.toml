@@ -1,0 +1,9 @@
+onboarding = false
+[keys]
+prefix = "ctrl+]"
+
+[ui.toast]
+delivery = "herdr"   # herdrの中にだけ表示。macOSの通知センターには出ない
+
+[ui.sound]
+enabled = false      # 音を鳴らさない

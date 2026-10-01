@@ -72,3 +72,5 @@ Pods/
 .metals
 metals.sbt
 .bsp
+
+**/.claude/settings.local.json
