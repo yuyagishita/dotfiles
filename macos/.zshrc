@@ -90,3 +90,6 @@ export GOOGLE_GENAI_USE_VERTEXAI=true
 export GOOGLE_CLOUD_PROJECT="wc-prj000-prod"
 export GOOGLE_CLOUD_LOCATION="global"
 
+
+# webcrew-jp 案件ワークスペース作成コマンド (mkws)
+export PATH="$HOME/ghq/github.com/webcrew-jp/.agents/bin:$PATH"
