@@ -34,7 +34,11 @@ The following configurations are already managed this way:
 - `.config/wezterm/` - WezTerm terminal emulator configuration
 - `.config/starship.toml` - Starship prompt configuration
 - `.config/chrome-flags.conf` - Chrome/Chromium flags
-- Shell configurations (`.zshrc`, `.zprofile`, `.zshenv`)
+- `.config/git/` - Git global ignore
+- `.config/nvim/` - Neovim (`init.lua`, `lazy-lock.json`, `lua/` linked individually)
+- `.config/gh/config.yml`, `.config/herdr/config.toml` - linked as files (their directories hold secrets or runtime state)
+- Shell configurations (`.zshrc`, `.zprofile`, `.zshenv`) and `.gitconfig`
+- `bin/backup-obsidian.sh` - used by the `obsidian-backup` systemd user service
 - Desktop application files in `.local/share/applications/`
 
 ### Setup Script
