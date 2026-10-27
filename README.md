@@ -46,6 +46,14 @@ If you prefer to create symbolic links manually, you can use the following comma
 ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.zprofile ~/.zprofile
 ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.zshenv ~/.zshenv
 ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.zshrc ~/.zshrc
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.gitconfig ~/.gitconfig
+```
+
+#### Scripts
+
+```bash
+mkdir -p ~/bin
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/bin/backup-obsidian.sh ~/bin/backup-obsidian.sh
 ```
 
 #### Config Directory
@@ -68,6 +76,17 @@ ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/starship.toml ~/.config/sta
 
 # Chrome flags
 ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/chrome-flags.conf ~/.config/chrome-flags.conf
+
+# Git global ignore
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/git ~/.config/git
+
+# Neovim, gh, herdr (file-level links: these directories also hold secrets or runtime state)
+mkdir -p ~/.config/nvim ~/.config/gh ~/.config/herdr
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/nvim/init.lua ~/.config/nvim/init.lua
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/nvim/lazy-lock.json ~/.config/nvim/lazy-lock.json
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/nvim/lua ~/.config/nvim/lua
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/gh/config.yml ~/.config/gh/config.yml
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/herdr/config.toml ~/.config/herdr/config.toml
 ```
 
 #### Desktop Applications
@@ -91,6 +110,7 @@ To set up all symbolic links at once, you can run the following:
 ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.zprofile ~/.zprofile
 ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.zshenv ~/.zshenv
 ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.zshrc ~/.zshrc
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.gitconfig ~/.gitconfig
 
 # Config directory
 mkdir -p ~/.config
@@ -99,6 +119,17 @@ ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/sway ~/.config/sway
 ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/wezterm ~/.config/wezterm
 ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/starship.toml ~/.config/starship.toml
 ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/chrome-flags.conf ~/.config/chrome-flags.conf
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/git ~/.config/git
+mkdir -p ~/.config/nvim ~/.config/gh ~/.config/herdr
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/nvim/init.lua ~/.config/nvim/init.lua
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/nvim/lazy-lock.json ~/.config/nvim/lazy-lock.json
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/nvim/lua ~/.config/nvim/lua
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/gh/config.yml ~/.config/gh/config.yml
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.config/herdr/config.toml ~/.config/herdr/config.toml
+
+# Scripts
+mkdir -p ~/bin
+ln -sf ~/ghq/github.com/yuyagishita/dotfiles/bin/backup-obsidian.sh ~/bin/backup-obsidian.sh
 
 # Desktop applications
 mkdir -p ~/.local/share/applications

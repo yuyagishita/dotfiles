@@ -39,6 +39,7 @@ echo "${fg[cyan]}Setting up shell configuration...${reset_color}"
 create_symlink "$DOTFILES_DIR/.zprofile" "$HOME/.zprofile"
 create_symlink "$DOTFILES_DIR/.zshenv" "$HOME/.zshenv"
 create_symlink "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+create_symlink "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
 
 echo "\n${fg[cyan]}Setting up .config directory...${reset_color}"
 mkdir -p "$HOME/.config"
@@ -51,6 +52,19 @@ create_symlink "$DOTFILES_DIR/.config/fuzzel" "$HOME/.config/fuzzel"
 create_symlink "$DOTFILES_DIR/.config/wezterm" "$HOME/.config/wezterm"
 create_symlink "$DOTFILES_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
 create_symlink "$DOTFILES_DIR/.config/chrome-flags.conf" "$HOME/.config/chrome-flags.conf"
+create_symlink "$DOTFILES_DIR/.config/git" "$HOME/.config/git"
+
+# Link individual files where the directory also holds secrets or runtime state
+mkdir -p "$HOME/.config/nvim" "$HOME/.config/gh" "$HOME/.config/herdr"
+create_symlink "$DOTFILES_DIR/.config/nvim/init.lua" "$HOME/.config/nvim/init.lua"
+create_symlink "$DOTFILES_DIR/.config/nvim/lazy-lock.json" "$HOME/.config/nvim/lazy-lock.json"
+create_symlink "$DOTFILES_DIR/.config/nvim/lua" "$HOME/.config/nvim/lua"
+create_symlink "$DOTFILES_DIR/.config/gh/config.yml" "$HOME/.config/gh/config.yml"
+create_symlink "$DOTFILES_DIR/.config/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+
+echo "\n${fg[cyan]}Setting up scripts...${reset_color}"
+mkdir -p "$HOME/bin"
+create_symlink "$DOTFILES_DIR/bin/backup-obsidian.sh" "$HOME/bin/backup-obsidian.sh"
 
 echo "\n${fg[cyan]}Setting up desktop applications...${reset_color}"
 mkdir -p "$HOME/.local/share/applications"
