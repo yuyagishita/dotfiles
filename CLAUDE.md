@@ -41,6 +41,7 @@ The following configurations are already managed this way:
 - `.config/gh/config.yml`, `.config/herdr/config.toml` - linked as files (their directories hold secrets or runtime state)
 - Shell configurations (`.zshrc`, `.zprofile`, `.zshenv`) and `.gitconfig`
 - `bin/backup-obsidian.sh` - used by the `obsidian-backup` systemd user service
+- `bin/pkg-sync.zsh` - Compares installed Arch packages with the git-ignored lists in `arch/`
 - Desktop application files in `.local/share/applications/`
 - `.githooks/` - Repository git hooks (secret scanning with gitleaks), enabled by `setup.zsh`
 

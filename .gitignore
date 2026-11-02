@@ -33,3 +33,6 @@ bower_components
 
 # Machine-specific security notes
 SECURITY.local.md
+
+# Machine-specific package lists
+arch/

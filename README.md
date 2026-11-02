@@ -157,3 +157,15 @@ End-to-end tests for the Neovim config use [mini.test](https://github.com/nvim-m
 ```bash
 nvim --headless --noplugin -u tests/nvim/minimal_init.lua -c "lua MiniTest.run()"
 ```
+
+## Arch Linux Packages
+
+`bin/pkg-sync.zsh` compares installed packages with the lists in `arch/`. The lists are git-ignored, so keep a private copy for reinstalling.
+
+```bash
+bin/pkg-sync.zsh dump     # Write the lists from the installed packages
+bin/pkg-sync.zsh status   # Show missing and unlisted packages
+bin/pkg-sync.zsh install  # Install missing packages
+```
+
+The script never removes packages.
