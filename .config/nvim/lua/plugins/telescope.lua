@@ -142,7 +142,7 @@ return {
       			base_dirs = (function()
       				local dirs = {}
       				local function file_exists(fname)
-      					local stat = vim.loop.fs_stat(vim.fn.expand(fname))
+      					local stat = vim.uv.fs_stat(vim.fn.expand(fname))
       					return (stat and stat.type) or false
       				end
       				if file_exists("~/.ghq") then
@@ -232,7 +232,7 @@ return {
       		end
       	end
       	local results_mru = get_mru(opts)
-      	local results_mru_cur = filter_by_cwd_paths(results_mru, vim.loop.cwd())
+      	local results_mru_cur = filter_by_cwd_paths(results_mru, vim.uv.cwd())
       
       	local show_untracked = utils.get_default(opts.show_untracked, true)
       	local recurse_submodules = utils.get_default(opts.recurse_submodules, false)

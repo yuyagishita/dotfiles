@@ -6,12 +6,12 @@ return {
 	-- Lua Library
 	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
-	{ "tami5/sqlite.lua", module = "sqlite" },
+	{ "kkharji/sqlite.lua" },
 	{ "MunifTanjim/nui.nvim" },
 
 	--------------------------------
 	-- Font
-	{ "kyazdani42/nvim-web-devicons" },
+	{ "nvim-tree/nvim-web-devicons" },
 
 	--------------------------------
 	-- Notify
@@ -108,7 +108,7 @@ return {
 
   --------------------------------
 	-- Neovim Lua development
-  { "folke/lua-dev.nvim", module = "lua-dev" },
+  { "folke/lazydev.nvim", ft = "lua", opts = {} },
 
  	--------------------------------------------------------------
 	-- Markup Languages

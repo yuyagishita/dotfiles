@@ -2,7 +2,7 @@ return {
   {
    	"neovim/nvim-lspconfig",
 		event = "VimEnter",
-    dependencies = { "williamboman/mason-lspconfig.nvim" },
+    dependencies = { "mason-org/mason-lspconfig.nvim" },
 		config = function()
       local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
       for type, icon in pairs(signs) do
@@ -16,11 +16,8 @@ return {
         local function buf_set_keymap(...)
           vim.api.nvim_buf_set_keymap(bufnr, ...)
         end
-        local function buf_set_option(...)
-          vim.api.nvim_buf_set_option(bufnr, ...)
-        end
         -- Enable completion triggered by <c-x><c-o>
-        buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+        vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
         -- Mappings.
         local opts = { noremap = true, silent = true }
         -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -42,11 +39,10 @@ return {
         buf_set_keymap("n", "[lsp]f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
       end
 
-      local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       -- List of servers to set up with default settings
-      local servers = { "zls", "docker-language-server" }
+      local servers = { "zls", "dockerls" }
 
       if os.getenv('WORK_ENV') ~= 'true' then
         table.insert(servers, "hls")
@@ -81,29 +77,15 @@ return {
       })
 
       -- metals
-      -- Suppress deprecation warning for metals setup
-      local original_notify = vim.notify
-      vim.notify = function(msg, level, opts)
-        if type(msg) == "string" and 
-           (msg:match("lspconfig.*deprecated") or 
-            msg:match("framework.*deprecated") or
-            msg:match("stack traceback")) then
-          return
-        end
-        original_notify(msg, level, opts)
-      end
-
-      lspconfig.metals.setup({
+      vim.lsp.config("metals", {
         on_attach = on_attach,
         capabilities = capabilities,
         cmd = { "metals" },
         -- cmd = { "/Users/yu.yagishita/Library/Application Support/Coursier/bin/metals" },
         filetypes = { "scala", "sbt" },
-        root_dir = lspconfig.util.root_pattern("build.sbt", "build.sc", "build.gradle", ".git"),
+        root_markers = { "build.sbt", "build.sc", "build.gradle", ".git" },
       })
-
-      -- Restore original vim.notify
-      vim.notify = original_notify
+      vim.lsp.enable("metals")
 
 		end,
   },
