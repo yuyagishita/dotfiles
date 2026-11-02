@@ -3,6 +3,9 @@ return {
     "mason-org/mason-lspconfig.nvim",
     event = "VeryLazy",
     dependencies = {
+      -- vim.lsp.config と mason の PATH 設定を、サーバーの有効化より先に済ませる
+      { "neovim/nvim-lspconfig" },
+      { "mason-org/mason.nvim" },
       { "folke/neoconf.nvim" },
       { "weilbith/nvim-lsp-smag" },
     },

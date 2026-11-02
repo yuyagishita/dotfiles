@@ -229,14 +229,21 @@ T["lsp"]["sets on_attach keys for a file opened after startup"] = function()
   eq(has_on_attach_key(terminal), true)
 end
 
--- Known bug: `nvim file.lua` attaches lua_ls without running on_attach.
--- This test fails once the bug is fixed. Change it to expect true then.
-T["lsp"]["known bug: misses on_attach keys for a file opened from the command line"] = function()
+T["lsp"]["sets on_attach keys for a file opened from the command line"] = function()
   require_tool("lua-language-server")
   write_file("cli.lua", "local a = 1")
   local terminal = start_terminal({ "cli.lua" })
   wait_for_lua_ls(terminal)
-  eq(has_on_attach_key(terminal), false)
+  eq(has_on_attach_key(terminal), true)
+end
+
+T["lsp"]["applies lua_ls settings for a file opened from the command line"] = function()
+  require_tool("lua-language-server")
+  write_file("cli.lua", "local a = 1")
+  local terminal = start_terminal({ "cli.lua" })
+  wait_for_lua_ls(terminal)
+  local globals = terminal.lua("vim.lsp.get_clients({ bufnr = 0, name = 'lua_ls' })[1].config.settings.Lua.diagnostics.globals")
+  eq(vim.tbl_contains(globals, "vim"), true)
 end
 
 T["copilot"] = new_set()

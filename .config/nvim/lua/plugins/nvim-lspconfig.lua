@@ -2,7 +2,6 @@ return {
   {
    	"neovim/nvim-lspconfig",
 		event = "VimEnter",
-    dependencies = { "mason-org/mason-lspconfig.nvim" },
 		config = function()
       local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
       for type, icon in pairs(signs) do
