@@ -55,14 +55,6 @@ return {
     event = "VimEnter" 
   },
 
-  --------------------------------
-  -- Git
-  {
-		"akinsho/git-conflict.nvim",
-		config = function()
-		  require('git-conflict').setup()
-		end,
-  },
  	--------------------------------------------------------------
 	-- Programming Languages
 
