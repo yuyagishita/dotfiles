@@ -7,7 +7,6 @@ return {
       { "neovim/nvim-lspconfig" },
       { "mason-org/mason.nvim" },
       { "folke/neoconf.nvim" },
-      { "weilbith/nvim-lsp-smag" },
     },
     config = function()
       local servers = {

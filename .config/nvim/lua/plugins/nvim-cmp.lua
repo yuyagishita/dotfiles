@@ -25,18 +25,13 @@ return {
       			menu = {
       				buffer = "[Buffer]",
       				nvim_lsp = "[LSP]",
-      				cmp_tabnine = "[TabNine]",
       				luasnip = "[LuaSnip]",
       				nvim_lua = "[Lua]",
       				latex_symbols = "[LaTeX]",
       				path = "[Path]",
       				omni = "[Omni]",
-      				spell = "[Spell]",
-      				emoji = "[Emoji]",
-      				calc = "[Calc]",
       				treesitter = "[TS]",
       				dictionary = "[Dictionary]",
-      				mocword = "[mocword]",
       			},
       		}),
       	},
@@ -140,17 +135,13 @@ return {
       	sources = cmp.config.sources({
       		{ name = "copilot", priority = 90 }, -- For luasnip users.
       		{ name = "nvim_lsp", priority = 100 },
-      		{ name = "cmp_tabnine", priority = 30 },
       		{ name = "luasnip", priority = 20 }, -- For luasnip users.
       		{ name = "path", priority = 100 },
-      		{ name = "emoji", insert = true, priority = 60 },
       		{ name = "nvim_lua", priority = 50 },
       		{ name = "nvim_lsp_signature_help", priority = 80 },
       	}, {
       		{ name = "buffer", priority = 50 },
       		{ name = "omni", priority = 40 },
-      		{ name = "spell", priority = 40 },
-      		{ name = "calc", priority = 50 },
       		{ name = "treesitter", priority = 30 },
       		{ name = "dictionary", keyword_length = 2, priority = 10 },
       	}),
@@ -161,17 +152,12 @@ return {
       	sources = cmp.config.sources({
       		{ name = "copilot", priority = 90 }, -- For luasnip users.
       		{ name = "nvim_lsp", priority = 100 },
-      		{ name = "cmp_tabnine", priority = 30 },
       		{ name = "luasnip", priority = 80 }, -- For luasnip users.
       		{ name = "path", priority = 100 },
-      		{ name = "emoji", insert = true, priority = 60 },
       	}, {
       		{ name = "buffer", priority = 50 },
       		{ name = "omni", priority = 40 },
-      		{ name = "spell", priority = 40 },
-      		{ name = "calc", priority = 50 },
       		{ name = "treesitter", priority = 30 },
-      		{ name = "mocword", priority = 60 },
       		{ name = "dictionary", keyword_length = 2, priority = 10 },
       	}),
       })
@@ -228,16 +214,8 @@ return {
 			-- { "hrsh7th/cmp-omni" },
 			{ "hrsh7th/cmp-nvim-lua" },
 			-- { "hrsh7th/cmp-copilot" },
-			{ "hrsh7th/cmp-emoji" },
-			{ "hrsh7th/cmp-calc" },
-			{ "f3fora/cmp-spell" },
-			{ "yutkat/cmp-mocword" },
 			{ "L3MON4D3/LuaSnip" },
 			{ "saadparwaiz1/cmp_luasnip" },
-			{
-				"tzachar/cmp-tabnine",
-				build = "./install.sh",
-			},
 			{ "ray-x/cmp-treesitter" },
 			{ "lukas-reineke/cmp-rg" },
 			{ "lukas-reineke/cmp-under-comparator" },

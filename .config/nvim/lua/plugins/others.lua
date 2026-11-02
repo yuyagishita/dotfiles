@@ -4,7 +4,6 @@ return {
 
 	--------------------------------
 	-- Lua Library
-	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
 	{ "kkharji/sqlite.lua" },
 	{ "MunifTanjim/nui.nvim" },
@@ -38,10 +37,6 @@ return {
 	-- Commandline
   {
 		"hrsh7th/cmp-cmdline",
-		event = "VimEnter"
-	},
-	{
-		"dmitmel/cmp-cmdline-history",
 		event = "VimEnter"
 	},
 
@@ -90,10 +85,6 @@ return {
   --   ft = { "markdown" }, 
   --   run = ":call mkdp#util#install()"
   -- },
-
-  --------------------------------
-  -- Carbon
-  { "carbon-language/vim-carbon-lang" },
 
   --------------------------------
   -- Haskell
