@@ -35,4 +35,5 @@ bower_components
 SECURITY.local.md
 
 # Machine-specific package lists
+.Brewfile
 arch/
