@@ -18,8 +18,15 @@ return {
         table.insert(servers, "hls")
       end
 
+      -- 仕事用のMac以外ではCopilotのLSPを自動で有効にしない
+      local automatic_enable = true
+      if os.getenv('WORK_ENV') ~= 'true' then
+        automatic_enable = { exclude = { "copilot" } }
+      end
+
       require("mason-lspconfig").setup({
-        ensure_installed = servers
+        ensure_installed = servers,
+        automatic_enable = automatic_enable,
       })
     end,
   },

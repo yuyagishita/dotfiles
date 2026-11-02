@@ -6,7 +6,7 @@
 set -euo pipefail
 
 # Configuration
-OBSIDIAN_DIR="/home/yu/ghq/github.com/yuyagishita/obsidian"
+OBSIDIAN_DIR="/home/yu/obsidian"
 REMOTE="gdrive-crypt:"
 BACKUP_NAME="obsidian-$(date +%Y%m%d-%H%M%S)"
 LOG_FILE="/home/yu/.local/share/obsidian-backup.log"
