@@ -160,7 +160,7 @@ nvim --headless --noplugin -u tests/nvim/minimal_init.lua -c "lua MiniTest.run()
 
 ## Arch Linux Packages
 
-`bin/pkg-sync.zsh` compares installed packages with the lists in `arch/`. The lists are git-ignored, so keep a private copy for reinstalling.
+`bin/pkg-sync.zsh` compares installed packages with the lists in `arch/`. The lists live in a private repository (`dotfiles-private`), and `setup.zsh` links them when that repository is cloned next to this one.
 
 ```bash
 bin/pkg-sync.zsh dump     # Write the lists from the installed packages

@@ -8,6 +8,8 @@ This repository manages configuration files using symbolic links from the home d
 
 It is used on both Arch Linux and macOS. Check the impact on both before changing or removing anything. macOS shell files live in `macos/`, and `setup.zsh` skips Linux-only configs on macOS.
 
+Machine-specific files (`arch/`, `.Brewfile`, `SECURITY.local.md`) are symlinks into the private `dotfiles-private` repository. Commit changes to them there.
+
 ## Configuration File Management Rules
 
 ### Core Principle
@@ -41,7 +43,7 @@ The following configurations are already managed this way:
 - `.config/gh/config.yml`, `.config/herdr/config.toml` - linked as files (their directories hold secrets or runtime state)
 - Shell configurations (`.zshrc`, `.zprofile`, `.zshenv`) and `.gitconfig`
 - `bin/backup-obsidian.sh` - used by the `obsidian-backup` systemd user service
-- `bin/pkg-sync.zsh` - Compares installed Arch packages with the git-ignored lists in `arch/`
+- `bin/pkg-sync.zsh` - Compares installed Arch packages with the lists in `arch/`
 - Desktop application files in `.local/share/applications/`
 - `.githooks/` - Repository git hooks (secret scanning with gitleaks), enabled by `setup.zsh`
 
@@ -54,7 +56,7 @@ The following configurations are already managed this way:
 
 ## When Making Changes
 
-- This repository is public. Keep details that could help an attacker (machine state, exposed services, key types, missing protections) out of tracked files and commit messages, and write them in the git-ignored `SECURITY.local.md`
+- This repository is public. Keep details that could help an attacker (machine state, exposed services, key types, missing protections) out of tracked files and commit messages, and write them in `SECURITY.local.md`, which links into the private `dotfiles-private` repository
 - Always commit configuration file changes to this repository
 - Test that symlinks work correctly after modifications
 - Keep setup.zsh up to date with any new configuration locations

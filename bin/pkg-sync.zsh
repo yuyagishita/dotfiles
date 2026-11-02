@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # Compare installed Arch Linux packages with the lists in arch/.
-# The lists are git-ignored because this repository is public.
+# The lists live in the private dotfiles-private repository because this one is public.
 # This script never removes packages.
 
 set -e

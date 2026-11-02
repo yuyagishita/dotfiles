@@ -9,6 +9,7 @@ set -e
 autoload -U colors && colors
 
 DOTFILES_DIR="${HOME}/ghq/github.com/yuyagishita/dotfiles"
+PRIVATE_DIR="${HOME}/ghq/github.com/yuyagishita/dotfiles-private"
 
 echo "${fg[cyan]}Starting dotfiles setup...${reset_color}\n"
 
@@ -85,6 +86,18 @@ fi
 echo "\n${fg[cyan]}Applying security settings...${reset_color}"
 git -C "$DOTFILES_DIR" config core.hooksPath .githooks
 [[ -f "$HOME/.zshrc_private" ]] && chmod 600 "$HOME/.zshrc_private"
+
+if [[ -d "$PRIVATE_DIR" ]]; then
+    echo "\n${fg[cyan]}Linking private files...${reset_color}"
+    git -C "$PRIVATE_DIR" config core.hooksPath "$DOTFILES_DIR/.githooks"
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        create_symlink "$PRIVATE_DIR/macos/Brewfile" "$DOTFILES_DIR/.Brewfile"
+        create_symlink "$PRIVATE_DIR/SECURITY.mac.md" "$DOTFILES_DIR/SECURITY.local.md"
+    else
+        create_symlink "$PRIVATE_DIR/arch" "$DOTFILES_DIR/arch"
+        create_symlink "$PRIVATE_DIR/SECURITY.arch.md" "$DOTFILES_DIR/SECURITY.local.md"
+    fi
+fi
 
 echo "\n${fg[green]}✓ Dotfiles setup completed successfully!${reset_color}"
 echo "${fg[cyan]}Please restart your shell or run 'source ~/.zshrc' to apply changes.${reset_color}"

@@ -31,9 +31,8 @@ bower_components
 # Neovim
 .config/nvim/plugin
 
-# Machine-specific security notes
-SECURITY.local.md
-
-# Machine-specific package lists
-.Brewfile
-arch/
+# Symlinks into the private dotfiles repository
+/arch
+/arch.backup
+/.Brewfile*
+/SECURITY.local.md*
