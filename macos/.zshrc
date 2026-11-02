@@ -6,6 +6,7 @@ compinit
 promptinit
 
 setopt correct
+setopt HIST_IGNORE_SPACE
 
 #autoload predict-on
 #predict-on

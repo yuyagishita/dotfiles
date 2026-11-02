@@ -61,14 +61,41 @@ vim.o.hidden = true -- 編集中でも他のファイルを開けるようにす
 vim.o.backup = true
 vim.o.backupdir = vim.fn.stdpath("data") .. "/backup/"
 vim.fn.mkdir(vim.o.backupdir, "p")
+vim.fn.setfperm(vim.o.backupdir, "rwx------")
 -- vim.o.backupext = string.gsub(vim.o.backupext, "[vimbackup]", "")
-vim.o.backupskip = ""
+-- 機密ファイルはバックアップとundoに内容を残さない
+local sensitive_patterns = {
+  "/tmp/*",
+  "/private/tmp/*",
+  "/var/folders/*",
+  ".env",
+  ".env.*",
+  "*.env",
+  "*.pem",
+  "*.key",
+  "id_rsa*",
+  "id_ed25519*",
+  "*credentials*",
+  "*secret*",
+  "*token*",
+  "*_private",
+  "hosts.yml",
+  "rclone.conf",
+}
+vim.o.backupskip = table.concat(sensitive_patterns, ",")
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = sensitive_patterns,
+  callback = function()
+    vim.bo.undofile = false
+  end,
+})
 vim.o.directory = vim.fn.stdpath("data") .. "/swap/"
 vim.fn.mkdir(vim.o.directory, "p")
 vim.o.updatecount = 100
 vim.o.undofile = true
 vim.o.undodir = vim.fn.stdpath("data") .. "/undo/"
 vim.fn.mkdir(vim.o.undodir, "p")
+vim.fn.setfperm(vim.o.undodir, "rwx------")
 vim.o.modeline = false
 
 -- OSのクリップボードを使う

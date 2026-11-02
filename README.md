@@ -3,6 +3,7 @@
 ## Support OS
 
 - Arch Linux
+- macOS (`setup.zsh` links `macos/` shell files and skips Linux-only configs)
 
 ## Description
 
@@ -139,3 +140,12 @@ ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.local/share/applications/obsidian.
 ```
 
 **Note:** The `-s` flag creates a symbolic link, and the `-f` flag forces the creation even if the target file already exists.
+
+## Secret Scanning
+
+`.githooks/pre-commit` scans staged changes with gitleaks. `setup.zsh` enables the hook.
+
+```bash
+sudo pacman -S gitleaks  # Arch Linux
+brew install gitleaks    # macOS
+```

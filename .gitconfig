@@ -6,6 +6,8 @@
   editor = nvim
 [includeIf "gitdir:~/webcrew/git/"]
 #  path = ~/.gitconfig_company
+[transfer]
+  fsckObjects = true
 [push]
   default = simple
 [color]

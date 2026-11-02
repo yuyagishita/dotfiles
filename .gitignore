@@ -30,3 +30,6 @@ bower_components
 
 # Neovim
 .config/nvim/plugin
+
+# Machine-specific security notes
+SECURITY.local.md

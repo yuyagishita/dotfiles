@@ -6,6 +6,8 @@ This file contains important guidelines for managing this dotfiles repository.
 
 This repository manages configuration files using symbolic links from the home directory to files in this repository.
 
+It is used on both Arch Linux and macOS. Check the impact on both before changing or removing anything. macOS shell files live in `macos/`, and `setup.zsh` skips Linux-only configs on macOS.
+
 ## Configuration File Management Rules
 
 ### Core Principle
@@ -40,6 +42,7 @@ The following configurations are already managed this way:
 - Shell configurations (`.zshrc`, `.zprofile`, `.zshenv`) and `.gitconfig`
 - `bin/backup-obsidian.sh` - used by the `obsidian-backup` systemd user service
 - Desktop application files in `.local/share/applications/`
+- `.githooks/` - Repository git hooks (secret scanning with gitleaks), enabled by `setup.zsh`
 
 ### Setup Script
 
@@ -50,6 +53,7 @@ The following configurations are already managed this way:
 
 ## When Making Changes
 
+- This repository is public. Keep details that could help an attacker (machine state, exposed services, key types, missing protections) out of tracked files and commit messages, and write them in the git-ignored `SECURITY.local.md`
 - Always commit configuration file changes to this repository
 - Test that symlinks work correctly after modifications
 - Keep setup.zsh up to date with any new configuration locations

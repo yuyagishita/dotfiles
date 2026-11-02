@@ -1,0 +1,7 @@
+#!/bin/sh
+# Block commits containing secrets. This repository is public.
+if ! command -v gitleaks >/dev/null 2>&1; then
+    echo "warning: gitleaks is not installed; skipping secret scan" >&2
+    exit 0
+fi
+exec gitleaks git --pre-commit --staged --redact --no-banner

@@ -36,22 +36,29 @@ create_symlink() {
 }
 
 echo "${fg[cyan]}Setting up shell configuration...${reset_color}"
-create_symlink "$DOTFILES_DIR/.zprofile" "$HOME/.zprofile"
-create_symlink "$DOTFILES_DIR/.zshenv" "$HOME/.zshenv"
-create_symlink "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    create_symlink "$DOTFILES_DIR/macos/.zprofile" "$HOME/.zprofile"
+    create_symlink "$DOTFILES_DIR/macos/.zshrc" "$HOME/.zshrc"
+else
+    create_symlink "$DOTFILES_DIR/.zprofile" "$HOME/.zprofile"
+    create_symlink "$DOTFILES_DIR/.zshenv" "$HOME/.zshenv"
+    create_symlink "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+fi
 create_symlink "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
 
 echo "\n${fg[cyan]}Setting up .config directory...${reset_color}"
 mkdir -p "$HOME/.config"
 
-create_symlink "$DOTFILES_DIR/.config/hypr" "$HOME/.config/hypr"
-create_symlink "$DOTFILES_DIR/.config/sway" "$HOME/.config/sway"
-create_symlink "$DOTFILES_DIR/.config/waybar" "$HOME/.config/waybar"
-create_symlink "$DOTFILES_DIR/.config/hyprpanel" "$HOME/.config/hyprpanel"
-create_symlink "$DOTFILES_DIR/.config/fuzzel" "$HOME/.config/fuzzel"
+if [[ "$(uname -s)" != "Darwin" ]]; then
+    create_symlink "$DOTFILES_DIR/.config/hypr" "$HOME/.config/hypr"
+    create_symlink "$DOTFILES_DIR/.config/sway" "$HOME/.config/sway"
+    create_symlink "$DOTFILES_DIR/.config/waybar" "$HOME/.config/waybar"
+    create_symlink "$DOTFILES_DIR/.config/hyprpanel" "$HOME/.config/hyprpanel"
+    create_symlink "$DOTFILES_DIR/.config/fuzzel" "$HOME/.config/fuzzel"
+    create_symlink "$DOTFILES_DIR/.config/chrome-flags.conf" "$HOME/.config/chrome-flags.conf"
+fi
 create_symlink "$DOTFILES_DIR/.config/wezterm" "$HOME/.config/wezterm"
 create_symlink "$DOTFILES_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
-create_symlink "$DOTFILES_DIR/.config/chrome-flags.conf" "$HOME/.config/chrome-flags.conf"
 create_symlink "$DOTFILES_DIR/.config/git" "$HOME/.config/git"
 
 # Link individual files where the directory also holds secrets or runtime state
@@ -62,16 +69,22 @@ create_symlink "$DOTFILES_DIR/.config/nvim/lua" "$HOME/.config/nvim/lua"
 create_symlink "$DOTFILES_DIR/.config/gh/config.yml" "$HOME/.config/gh/config.yml"
 create_symlink "$DOTFILES_DIR/.config/herdr/config.toml" "$HOME/.config/herdr/config.toml"
 
-echo "\n${fg[cyan]}Setting up scripts...${reset_color}"
-mkdir -p "$HOME/bin"
-create_symlink "$DOTFILES_DIR/bin/backup-obsidian.sh" "$HOME/bin/backup-obsidian.sh"
+if [[ "$(uname -s)" != "Darwin" ]]; then
+    echo "\n${fg[cyan]}Setting up scripts...${reset_color}"
+    mkdir -p "$HOME/bin"
+    create_symlink "$DOTFILES_DIR/bin/backup-obsidian.sh" "$HOME/bin/backup-obsidian.sh"
 
-echo "\n${fg[cyan]}Setting up desktop applications...${reset_color}"
-mkdir -p "$HOME/.local/share/applications"
+    echo "\n${fg[cyan]}Setting up desktop applications...${reset_color}"
+    mkdir -p "$HOME/.local/share/applications"
 
-create_symlink "$DOTFILES_DIR/.local/share/applications/code.desktop" "$HOME/.local/share/applications/code.desktop"
-create_symlink "$DOTFILES_DIR/.local/share/applications/discord.desktop" "$HOME/.local/share/applications/discord.desktop"
-create_symlink "$DOTFILES_DIR/.local/share/applications/obsidian.desktop" "$HOME/.local/share/applications/obsidian.desktop"
+    create_symlink "$DOTFILES_DIR/.local/share/applications/code.desktop" "$HOME/.local/share/applications/code.desktop"
+    create_symlink "$DOTFILES_DIR/.local/share/applications/discord.desktop" "$HOME/.local/share/applications/discord.desktop"
+    create_symlink "$DOTFILES_DIR/.local/share/applications/obsidian.desktop" "$HOME/.local/share/applications/obsidian.desktop"
+fi
+
+echo "\n${fg[cyan]}Applying security settings...${reset_color}"
+git -C "$DOTFILES_DIR" config core.hooksPath .githooks
+[[ -f "$HOME/.zshrc_private" ]] && chmod 600 "$HOME/.zshrc_private"
 
 echo "\n${fg[green]}✓ Dotfiles setup completed successfully!${reset_color}"
 echo "${fg[cyan]}Please restart your shell or run 'source ~/.zshrc' to apply changes.${reset_color}"
