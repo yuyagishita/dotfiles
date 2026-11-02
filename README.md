@@ -149,3 +149,11 @@ ln -sf ~/ghq/github.com/yuyagishita/dotfiles/.local/share/applications/obsidian.
 sudo pacman -S gitleaks  # Arch Linux
 brew install gitleaks    # macOS
 ```
+
+## Testing
+
+End-to-end tests for the Neovim config use [mini.test](https://github.com/nvim-mini/mini.test). The first run installs a pinned commit under Neovim's data directory.
+
+```bash
+nvim --headless --noplugin -u tests/nvim/minimal_init.lua -c "lua MiniTest.run()"
+```
